@@ -15,6 +15,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.entities.roles.Employer;
+import acme.entities.roles.Worker;
 import acme.framework.datatypes.Money;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
@@ -60,4 +61,9 @@ public class Job extends DomainEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private Employer			employer;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Worker				worker;
 }

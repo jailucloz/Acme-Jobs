@@ -15,3 +15,6 @@ worker.application.list.label.creationMoment = Momento de Creación
 worker.application.list.label.status = Estado
 
 worker.application.form.label.job.reference = Número referencia de un trabajo
+
+
+worker.application.form-buttom.create = Crear
