@@ -361,7 +361,7 @@
   	<bean name="application1" class="acme.entities.applications.Application">
   		<property name="referenceNumber" value="EEEE-JJJJ:WWWW" />
   		<property name="creationMoment" value="2018/12/11 23:59" />
-  		<property name="status" value="REJECTED" />
+  		<property name="status" value="PENDING" />
   		<property name="statement" value="Application 1" />
   		<property name="skills" value="The ability to work under pressure and creativity." />
   		<property name="qualifications" value="Software Engineer" />
@@ -382,8 +382,13 @@
   	
   	<bean name="application3" class="acme.entities.applications.Application">
   		<property name="referenceNumber" value="EEEJ-JJJL:WWWY" />
+
+  		<property name="creationMoment" value="2018/12/11 23:59" />
+  		<property name="status" value="PENDING" /> 
+
   		<property name="creationMoment" value="2019/12/11 23:59" />
   		<property name="status" value="ACCEPTED" />
+
   		<property name="statement" value="Application 3" />
   		<property name="skills" value="Commercial awareness and teamworking skills" />
   		<property name="qualifications" value="Software Engineer" />
@@ -393,8 +398,13 @@
   	
   	<bean name="application4" class="acme.entities.applications.Application">
   		<property name="referenceNumber" value="EEEK-JJJM:WWWZ" />
+
+  		<property name="creationMoment" value="2018/12/11 23:59" />
+  		<property name="status" value="PENDING" />
+
   		<property name="creationMoment" value="2018/12/11 22:59" />
   		<property name="status" value="REJECTED" />
+
   		<property name="statement" value="Application 4" />
   		<property name="skills" value="Commercial awareness and teamworking skills" />
   		<property name="qualifications" value="Software Engineer" />
@@ -403,6 +413,28 @@
   	</bean>
   	
   	<bean name="application5" class="acme.entities.applications.Application">
+
+		<property name="referenceNumber" value="EMP1-JOB1:WOR2" />
+		<property name="creationMoment" value="2019/01/11 16:30" />
+		<property name="status" value="PENDING" />
+		<property name="statement" value="statement" />
+		<property name="skills" value="application skills" />
+		<property name="qualifications" value="application5 cualifications" />
+		<property name="worker" ref="worker2Worker" />
+		<property name="job" ref="job1" />
+	</bean>
+	
+	<bean name="application6" class="acme.entities.applications.Application">
+		<property name="referenceNumber" value="EMP1-JOB3:WOR1" />
+		<property name="creationMoment" value="2019/02/11 16:30" />
+		<property name="status" value="PENDING" />
+		<property name="statement" value="statement" />
+		<property name="skills" value="application skills" />
+		<property name="qualifications" value="application6 cualifications" />
+		<property name="worker" ref="worker1Worker" />
+		<property name="job" ref="job3" />
+  	</bean>
+
   		<property name="referenceNumber" value="EEEI-JJKK:WWWX" />
   		<property name="creationMoment" value="2018/12/11 23:59" />
   		<property name="status" value="PENDING" />
@@ -435,6 +467,7 @@
   		<property name="job" ref="job6" />
   	</bean>
   	
+
   	<!-- Audits -->
   	
   	<bean name="auditRecord01" class="acme.entities.audits.Audit">
