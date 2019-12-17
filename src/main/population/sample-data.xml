@@ -385,7 +385,7 @@
   	<bean name="application3" class="acme.entities.applications.Application">
   		<property name="referenceNumber" value="EEEJ-JJJL:WWWY" />
   		<property name="creationMoment" value="2018/12/11 23:59" />
-  		<property name="status" value="PENDING" /> 
+  		<property name="status" value="PENDING" />
   		<property name="statement" value="Application 3" />
   		<property name="skills" value="Commercial awareness and teamworking skills" />
   		<property name="qualifications" value="Software Engineer" />
@@ -425,6 +425,22 @@
 		<property name="worker" ref="worker1Worker" />
 		<property name="job" ref="job3" />
   	</bean>
+
+
+  	
+  	<bean name="application7" class="acme.entities.applications.Application">
+  		<property name="referenceNumber" value="EEEK-JJKM:WWWZ" />
+  		<property name="creationMoment" value="2018/12/11 22:59" />
+  		<property name="status" value="PENDING" />
+  		<property name="statement" value="Application 7" />
+  		<property name="skills" value="Commercial awareness and teamworking skills" />
+  		<property name="qualifications" value="Software Engineer" />
+  		<property name="worker" ref="worker2Worker" />
+  		<property name="job" ref="job6" />
+  	</bean>
+  	
+
+
   	<!-- Audits -->
   	
   	<bean name="auditRecord01" class="acme.entities.audits.Audit">
