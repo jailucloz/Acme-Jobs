@@ -19,9 +19,22 @@ employer.job.form.label.deadline = Fecha límite
 employer.job.form.label.salary = Salario
 employer.job.form.label.moreInfo = Información adicional
 employer.job.form.label.description = Descripción
-employer.job.form.label.descriptorDescription = Descripción del descriptor
+employer.job.form.label.finalMode = Público
 
 employer.job.form.label.duties = Lista de obligaciones
+employer.job.form.label.duties.create = Crear obligación
 employer.job.form.label.audit = Lista de auditorías
 
+employer.job.form.button.create = Crear
+employer.job.form.button.update = Actualizar
+employer.job.form.button.delete = Borrar
+
 employer.job.form.button.return = Volver
+
+
+
+errors.job.salary.money.euro = La moneda tiene que ser euros '€' / 'EUR'
+errors.job.salary.money.amount-positive = La cantidad debe ser positiva
+errors.job.deadline.future = La fecha límite debe ser estar en futuro
+errors.job.reference.unique = La referencia debe ser unica
+errors.job.finalMode.no = No se puede editar un trabajo que está en modo final

@@ -16,9 +16,15 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textarea code="employer.duty.form.label.title" path="title"/>
-	<acme:form-textbox code="employer.duty.form.label.dutyDescription" path="dutyDescription"/>
+	<acme:form-textbox code="employer.duty.form.label.title" path="title"/>
+	<acme:form-textarea code="employer.duty.form.label.dutyDescription" path="dutyDescription"/>
 	<acme:form-integer code="employer.duty.form.label.percentage" path="percentage"/>
+	
+	<acme:form-submit test="${command == 'show' }" code="employer.duty.form.button.update" action="/employer/duty/update"/>
+	<acme:form-submit test="${command == 'show' }" code="employer.duty.form.button.delete" action="/employer/duty/delete"/>
+	<acme:form-submit test="${command == 'create' }" code="employer.duty.form.button.create" action="/employer/duty/create"/>
+	<acme:form-submit test="${command == 'update' }" code="employer.duty.form.button.update" action="/employer/duty/update"/>
+	<acme:form-submit test="${command == 'delete' }" code="employer.duty.form.button.delete" action="/employer/duty/delete"/>
 	
 	<acme:form-return code="employer.duty.form.button.return"/>
 </acme:form>

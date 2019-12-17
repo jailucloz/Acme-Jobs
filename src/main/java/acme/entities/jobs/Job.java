@@ -3,7 +3,6 @@ package acme.entities.jobs;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -31,7 +30,7 @@ public class Job extends DomainEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	// Attributes ----------------------------------------------------------------------------------
-	@Column(unique = true)
+	//@Column(unique = true)
 	@NotBlank
 	@Length(min = 5, max = 10)
 	private String				reference;
@@ -53,12 +52,7 @@ public class Job extends DomainEntity {
 	@URL
 	private String				moreInfo;
 
-	//	private JobStatus			status;
-
 	private Boolean				finalMode;
-
-	@NotBlank
-	private String				descriptorDescription;
 
 	// Relationships -----------------------------------------------------------------------------------
 

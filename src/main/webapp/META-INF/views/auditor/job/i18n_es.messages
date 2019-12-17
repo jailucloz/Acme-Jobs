@@ -19,7 +19,6 @@ auditor.job.form.label.deadline = Fecha límite
 auditor.job.form.label.salary = Salario
 auditor.job.form.label.moreInfo = Información adicional
 auditor.job.form.label.description = Descripción
-auditor.job.form.label.descriptorDescription = Descripción del descriptor
 
 auditor.job.form.label.duties = Lista de obligaciones
 auditor.job.form.label.audit = Lista de auditorías

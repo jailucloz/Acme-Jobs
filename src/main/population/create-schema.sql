@@ -165,7 +165,6 @@
         `version` integer not null,
         `deadline` datetime(6),
         `description` varchar(255),
-        `descriptor_description` varchar(255),
         `final_mode` bit,
         `more_info` varchar(255),
         `reference` varchar(255),
@@ -285,9 +284,6 @@
 
     alter table `customization` 
        add constraint `UK1i2pxu5xiyd2tkwo83784r4l0` unique (`activeid`);
-
-    alter table `job` 
-       add constraint UK_7jmfdvs0b0jx7i33qxgv22h7b unique (`reference`);
 
     alter table `offer` 
        add constraint UK_iex7e8fs0fh89yxpcnm1orjkm unique (`ticker`);
