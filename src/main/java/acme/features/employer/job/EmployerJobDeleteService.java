@@ -1,11 +1,16 @@
 
 package acme.features.employer.job;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.applications.Application;
+import acme.entities.duties.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
+import acme.features.employer.duty.EmployerDutyRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -17,7 +22,10 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 	// Internal state --------------------------------------------------------------------------
 
 	@Autowired
-	EmployerJobRepository repository;
+	EmployerJobRepository	repository;
+
+	@Autowired
+	EmployerDutyRepository	employerDutyRepository;
 
 
 	// AbstractDeleteService<Employer, Job> interface ---------------------------------------
@@ -66,19 +74,23 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		if (!errors.hasErrors()) {
-			Boolean hasApplication;
+		// Validación para cuando existen applications
+		Collection<Application> applications;
+		applications = this.repository.findApplicationByJobId(entity.getId());
 
-			// Validación de no tener ninguna aplication
-			hasApplication = this.repository.findApplicationWithThisJob(entity.getId()) != null;
-			errors.state(request, hasApplication, "finalMode", "errors.job.has.application", "Can't delete a job whith a worker has applied for it");
+		if (applications != null && !applications.isEmpty()) {
+			errors.state(request, false, "reference", "errors.job.hasApplications", "A job can be deleted as long as no worker has applied for it");
 		}
+
 	}
 
 	@Override
 	public void delete(final Request<Job> request, final Job entity) {
 		assert request != null;
 		assert entity != null;
+
+		Collection<Duty> duties = this.repository.findDutyByJobId(entity.getId());
+		this.employerDutyRepository.deleteAll(duties);
 
 		this.repository.delete(entity);
 	}

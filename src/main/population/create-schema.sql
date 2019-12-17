@@ -268,7 +268,7 @@
        `id` integer not null,
         `version` integer not null,
         `user_account_id` integer,
-        `qualifications` varchar(255),
+        `qualifications` integer,
         `skills` varchar(255),
         primary key (`id`)
     ) engine=InnoDB;
@@ -278,9 +278,6 @@
     ) engine=InnoDB;
 
     insert into `hibernate_sequence` values ( 1 );
-create index IDXnlv6ege1ixororpblu3lctiev on `application` (`reference_number` desc);
-create index IDX618is0hf6jk8mhi0qeume2hqw on `application` (`creation_moment` desc);
-create index IDX2q2747fhp099wkn3j2yt05fhs on `application` (`status` desc);
 
     alter table `application` 
        add constraint UK_rf84q38qr35ymh5nn0dcxfdue unique (`reference_number`);

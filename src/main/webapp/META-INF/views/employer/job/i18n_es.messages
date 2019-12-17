@@ -32,9 +32,13 @@ employer.job.form.button.delete = Borrar
 employer.job.form.button.return = Volver
 
 
+errors.job.is.finalMode.description = No se puede poner modo final sin una descripción
+errors.job.is.finalMode.sumDuty = No se puede poner modo final si las obligaciones no suman el 100% de la carga de trabajo
+errors.job.is.finalMode.spam = No se puede poner el modo final si se usa un determinado número de palabras de Spam
 
 errors.job.salary.money.euro = La moneda tiene que ser euros '€' / 'EUR'
 errors.job.salary.money.amount-positive = La cantidad debe ser positiva
-errors.job.deadline.future = La fecha límite debe ser estar en futuro
+errors.job.deadline.future = La fecha límite debe ser estar en futuro y a partir de una semana
 errors.job.reference.unique = La referencia debe ser unica
-errors.job.finalMode.no = No se puede editar un trabajo que está en modo final
+
+errors.job.hasApplications = Un trabajo no puede borrarse si un trabajador lo ha solicitado

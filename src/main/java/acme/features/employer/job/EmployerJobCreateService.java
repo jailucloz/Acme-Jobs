@@ -1,6 +1,7 @@
 
 package acme.features.employer.job;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,33 +76,38 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		if (!errors.hasErrors()) {
-			Boolean isFuture, isPositive, isEuro;
+		Boolean isFuture, isPositive, isEuro;
 
-			// Validación referencia unica
-			// isDuplicated = this.repository.findOneReferenceByJobId(entity.getReference()) != null;
-			// errors.state(request, !isDuplicated, "reference", "errors.job.reference.unique", "The reference must be unique");
-
-			// Validación de fecha futura
-			Date fechaActual;
+		// Validación de fecha futura
+		if (!errors.hasErrors("deadline")) {
+			Date fechaActual, fecha;
 			fechaActual = new Date();
-			isFuture = entity.getDeadline().after(fechaActual);
-			errors.state(request, isFuture, "deadline", "errors.job.deadline.future", "Deadline must be in future");
 
-			// Validación dinero positivo
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(fechaActual);
+			calendar.add(Calendar.DAY_OF_WEEK, 7);
+			fecha = calendar.getTime();
+
+			isFuture = entity.getDeadline().after(fecha);
+			errors.state(request, isFuture, "deadline", "errors.job.deadline.future", "Deadline must be in future and within a week");
+		}
+
+		// Validación dinero positivo
+		if (!errors.hasErrors("salary")) {
 			isPositive = entity.getSalary().getAmount() > 0;
 			errors.state(request, isPositive, "salary", "errors.job.salary.money.amount-positive", "The amount must be positive");
+		}
 
-			// Validación moneda
+		// Validación moneda
+		if (!errors.hasErrors("salary")) {
 			isEuro = entity.getSalary().getCurrency().equals("EUR") || entity.getSalary().getCurrency().equals("€");
 			errors.state(request, isEuro, "salary", "errors.job.salary.money.euro", "The money must be in euro '€' / 'EUR'");
-
 		}
+
 	}
 
 	@Override
 	public void create(final Request<Job> request, final Job entity) {
 		this.repository.save(entity);
 	}
-
 }
