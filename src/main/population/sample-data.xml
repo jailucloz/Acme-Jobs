@@ -216,9 +216,7 @@
 		<property name="salary" value="€ 15,000.50"/>
 		<property name="description" value="This is the first job in the system."/>
 		<property name="moreInfo" value="http://www.example1.com"/>
-		<!-- <property name="status" value="PUBLISHED"/> -->
 		<property name="finalMode" value="true"/>
-		<property name="descriptorDescription" value="First description of descriptor"/>
 		<property name="employer" ref="employer1Employer"/>
 	</bean>
 	
@@ -229,9 +227,7 @@
 		<property name="salary" value="€ 20,000"/>
 		<property name="description" value="This is the second job in the system."/>
 		<property name="moreInfo" value="http://www.example2.com"/>
-		<!-- <property name="status" value="DRAFT"/> -->
 		<property name="finalMode" value="false"/>
-		<property name="descriptorDescription" value="Second description of descriptor"/>
 		<property name="employer" ref="employer1Employer"/>
 	</bean>
 	
@@ -242,9 +238,7 @@
 		<property name="salary" value="€ 55,210.00"/>
 		<property name="description" value="This is the third job in the system."/>
 		<property name="moreInfo"><null/></property>
-		<!-- <property name="status" value="PUBLISHED"/> -->
 		<property name="finalMode" value="true"/>
-		<property name="descriptorDescription" value="Third description of descriptor"/>
 		<property name="employer" ref="employer1Employer"/>
 	</bean>
 	
@@ -255,9 +249,7 @@
 		<property name="salary" value="€ 5,000.82"/>
 		<property name="description" value="This is the fourth job in the system."/>
 		<property name="moreInfo"><null/></property>
-		<!-- <property name="status" value="PUBLISHED"/> -->
 		<property name="finalMode" value="true"/>
-		<property name="descriptorDescription" value="Fourth description of descriptor"/>
 		<property name="employer" ref="employer2Employer"/>
 	</bean>
 	
@@ -268,9 +260,7 @@
 		<property name="salary" value="€ 80,000.50"/>
 		<property name="description" value="This is the fifth job in the system."/>
 		<property name="moreInfo" value="http://www.example5.com"/>
-	<!-- 	<property name="status" value="DRAFT"/> -->
 		<property name="finalMode" value="false"/>
-		<property name="descriptorDescription" value="Fifth description of descriptor"/>
 		<property name="employer" ref="employer2Employer"/>
 	</bean>
 	
@@ -281,9 +271,7 @@
 		<property name="salary" value="€ 20,000.80"/>
 		<property name="description" value="This is the sixth job in the system."/>
 		<property name="moreInfo" value="http://www.example6.com"/>
-	<!-- 	<property name="status" value="PUBLISHED"/> -->
 		<property name="finalMode" value="true"/>
-		<property name="descriptorDescription" value="Sixth description of descriptor"/>
 		<property name="employer" ref="employer2Employer"/>
 	</bean>
 	
@@ -383,7 +371,7 @@
   	
   	<bean name="application2" class="acme.entities.applications.Application">
   		<property name="referenceNumber" value="EEEI-JJJK:WWWX" />
-  		<property name="creationMoment" value="2018/12/11 23:59" />
+  		<property name="creationMoment" value="2017/12/11 23:59" />
   		<property name="status" value="PENDING" />
   		<property name="statement" value="Application 2" />
   		<property name="skills" value="Commercial awareness and teamworking skills" />
@@ -394,8 +382,13 @@
   	
   	<bean name="application3" class="acme.entities.applications.Application">
   		<property name="referenceNumber" value="EEEJ-JJJL:WWWY" />
+
   		<property name="creationMoment" value="2018/12/11 23:59" />
   		<property name="status" value="PENDING" /> 
+
+  		<property name="creationMoment" value="2019/12/11 23:59" />
+  		<property name="status" value="ACCEPTED" />
+
   		<property name="statement" value="Application 3" />
   		<property name="skills" value="Commercial awareness and teamworking skills" />
   		<property name="qualifications" value="Software Engineer" />
@@ -405,8 +398,13 @@
   	
   	<bean name="application4" class="acme.entities.applications.Application">
   		<property name="referenceNumber" value="EEEK-JJJM:WWWZ" />
+
   		<property name="creationMoment" value="2018/12/11 23:59" />
   		<property name="status" value="PENDING" />
+
+  		<property name="creationMoment" value="2018/12/11 22:59" />
+  		<property name="status" value="REJECTED" />
+
   		<property name="statement" value="Application 4" />
   		<property name="skills" value="Commercial awareness and teamworking skills" />
   		<property name="qualifications" value="Software Engineer" />
@@ -415,6 +413,7 @@
   	</bean>
   	
   	<bean name="application5" class="acme.entities.applications.Application">
+
 		<property name="referenceNumber" value="EMP1-JOB1:WOR2" />
 		<property name="creationMoment" value="2019/01/11 16:30" />
 		<property name="status" value="PENDING" />
@@ -435,6 +434,40 @@
 		<property name="worker" ref="worker1Worker" />
 		<property name="job" ref="job3" />
   	</bean>
+
+  		<property name="referenceNumber" value="EEEI-JJKK:WWWX" />
+  		<property name="creationMoment" value="2018/12/11 23:59" />
+  		<property name="status" value="PENDING" />
+  		<property name="statement" value="Application 5" />
+  		<property name="skills" value="Commercial awareness and teamworking skills" />
+  		<property name="qualifications" value="Software Engineer" />
+  		<property name="worker" ref="worker1Worker" />
+  		<property name="job" ref="job4" />
+  	</bean>
+  	
+  	<bean name="application6" class="acme.entities.applications.Application">
+  		<property name="referenceNumber" value="EEEJ-JJKL:WWWY" />
+  		<property name="creationMoment" value="2019/12/11 23:59" />
+  		<property name="status" value="ACCEPTED" />
+  		<property name="statement" value="Application 6" />
+  		<property name="skills" value="Commercial awareness and teamworking skills" />
+  		<property name="qualifications" value="Software Engineer" />
+  		<property name="worker" ref="worker1Worker" />
+  		<property name="job" ref="job5" />
+  	</bean>
+  	
+  	<bean name="application7" class="acme.entities.applications.Application">
+  		<property name="referenceNumber" value="EEEK-JJKM:WWWZ" />
+  		<property name="creationMoment" value="2018/12/11 22:59" />
+  		<property name="status" value="REJECTED" />
+  		<property name="statement" value="Application 7" />
+  		<property name="skills" value="Commercial awareness and teamworking skills" />
+  		<property name="qualifications" value="Software Engineer" />
+  		<property name="worker" ref="worker2Worker" />
+  		<property name="job" ref="job6" />
+  	</bean>
+  	
+
   	<!-- Audits -->
   	
   	<bean name="auditRecord01" class="acme.entities.audits.Audit">
