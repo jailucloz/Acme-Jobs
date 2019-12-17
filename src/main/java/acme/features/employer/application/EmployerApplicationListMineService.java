@@ -38,7 +38,6 @@ public class EmployerApplicationListMineService implements AbstractListService<E
 
 		request.unbind(entity, model, "creationMoment", "referenceNumber", "statement");
 
-		//		request.unbind(entity, model, "referenceNumber", "creationMoment", "status");
 	}
 
 	@Override
