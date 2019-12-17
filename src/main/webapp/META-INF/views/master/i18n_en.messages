@@ -87,6 +87,12 @@ master.menu.employer = Employer
 master.menu.employer.list.job = Job list
 master.menu.employer.list.job.create = Create job
 master.menu.employer.list.application = Application list
+master.menu.employer.list.application.list_mine = Application list
+
+master.menu.employer.list.application.list_reference = Applications grouped by Reference Number
+master.menu.employer.list.application.list_moment = Applications grouped by Creation Moment
+master.menu.employer.list.application.list_status = Applications grouped by Status
+
 
 
 # master.menu.worker ##########################################################
@@ -233,6 +239,11 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+
+master.menu.user-account.employer = Employer  data
+master.menu.user-account.become-employer = Become a employer 
+master.menu.user-account.worker = Worker data
+master.menu.user-account.become-worker = Become a worker
 
 # master.footer ###############################################################
 
