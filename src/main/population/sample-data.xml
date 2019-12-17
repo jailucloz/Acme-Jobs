@@ -260,6 +260,7 @@
 		<property name="salary" value="€ 80,000.50"/>
 		<property name="description" value="This is the fifth job in the system."/>
 		<property name="moreInfo" value="http://www.example5.com"/>
+	<!-- 	<property name="status" value="DRAFT"/> -->
 		<property name="finalMode" value="false"/>
 		<property name="employer" ref="employer2Employer"/>
 	</bean>
@@ -271,6 +272,7 @@
 		<property name="salary" value="€ 20,000.80"/>
 		<property name="description" value="This is the sixth job in the system."/>
 		<property name="moreInfo" value="http://www.example6.com"/>
+	<!-- 	<property name="status" value="PUBLISHED"/> -->
 		<property name="finalMode" value="true"/>
 		<property name="employer" ref="employer2Employer"/>
 	</bean>
@@ -371,7 +373,7 @@
   	
   	<bean name="application2" class="acme.entities.applications.Application">
   		<property name="referenceNumber" value="EEEI-JJJK:WWWX" />
-  		<property name="creationMoment" value="2017/12/11 23:59" />
+  		<property name="creationMoment" value="2018/12/11 23:59" />
   		<property name="status" value="PENDING" />
   		<property name="statement" value="Application 2" />
   		<property name="skills" value="Commercial awareness and teamworking skills" />
@@ -403,7 +405,6 @@
   	</bean>
   	
   	<bean name="application5" class="acme.entities.applications.Application">
-
 		<property name="referenceNumber" value="EMP1-JOB1:WOR2" />
 		<property name="creationMoment" value="2019/01/11 16:30" />
 		<property name="status" value="PENDING" />
@@ -425,6 +426,7 @@
 		<property name="job" ref="job3" />
   	</bean>
 
+
   	
   	<bean name="application7" class="acme.entities.applications.Application">
   		<property name="referenceNumber" value="EEEK-JJKM:WWWZ" />
@@ -437,6 +439,7 @@
   		<property name="job" ref="job6" />
   	</bean>
   	
+
 
   	<!-- Audits -->
   	
@@ -1049,3 +1052,4 @@
 	</bean>
   	
 </beans>
+
