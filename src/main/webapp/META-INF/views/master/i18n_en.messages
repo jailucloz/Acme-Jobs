@@ -85,6 +85,8 @@ master.menu.consumer.favourite-link = Favourite link
 
 master.menu.employer = Employer
 master.menu.employer.list.job = Job list
+master.menu.employer.list.job.create = Create job
+master.menu.employer.list.application = Application list
 master.menu.employer.list.application.list_mine = Application list
 
 master.menu.employer.list.application.list_reference = Applications grouped by Reference Number

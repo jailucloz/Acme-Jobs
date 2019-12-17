@@ -37,8 +37,6 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		employer = job.getEmployer();
 		principal = request.getPrincipal();
 
-		//result = job.getStatus() == JobStatus.PUBLISHED || job.getStatus() == JobStatus.DRAFT && employer.getUserAccount().getId() == principal.getAccountId();
-
 		result = job.getFinalMode() || !job.getFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
 
 		return result;
@@ -50,7 +48,7 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "deadline", "title", "salary", "moreInfo", "description", "finalMode", "descriptorDescription");
+		request.unbind(entity, model, "id", "reference", "deadline", "title", "salary", "moreInfo", "description", "finalMode");
 	}
 
 	@Override

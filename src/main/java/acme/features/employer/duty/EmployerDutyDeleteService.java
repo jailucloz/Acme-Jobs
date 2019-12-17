@@ -5,44 +5,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.duties.Duty;
-import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
+import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Principal;
-import acme.framework.services.AbstractShowService;
+import acme.framework.services.AbstractDeleteService;
 
 @Service
-public class EmployerDutyShowService implements AbstractShowService<Employer, Duty> {
+public class EmployerDutyDeleteService implements AbstractDeleteService<Employer, Duty> {
 
-	// Internal state -------------------------------------------------------------
+	// Internal state --------------------------------------------------------------------------
 
 	@Autowired
 	EmployerDutyRepository repository;
 
 
-	// AbstractShowService<Employer, Duty> interface -------------------------------
+	// AbstractDeleteService<Employer, Duty> interface ---------------------------------------
 
 	@Override
 	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
 
-		boolean result;
-		int dutyId;
-		Duty duty;
-		Job job;
-		Employer employer;
-		Principal principal;
+		return true;
+	}
 
-		dutyId = request.getModel().getInteger("id");
-		duty = this.repository.findOneDutyById(dutyId);
-		job = duty.getJob();
-		employer = job.getEmployer();
-		principal = request.getPrincipal();
+	@Override
+	public void bind(final Request<Duty> request, final Duty entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
 
-		result = job.getFinalMode() || !job.getFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
-
-		return result;
+		request.bind(entity, errors, "job");
 	}
 
 	@Override
@@ -65,6 +58,21 @@ public class EmployerDutyShowService implements AbstractShowService<Employer, Du
 		result = this.repository.findOneDutyById(id);
 
 		return result;
+	}
+
+	@Override
+	public void validate(final Request<Duty> request, final Duty entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+	}
+
+	@Override
+	public void delete(final Request<Duty> request, final Duty entity) {
+		assert request != null;
+		assert entity != null;
+
+		this.repository.delete(entity);
 	}
 
 }

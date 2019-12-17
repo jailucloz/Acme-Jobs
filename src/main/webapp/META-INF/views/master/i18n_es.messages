@@ -13,12 +13,12 @@
 
 master.banner.background = #FFFFFF
 
-﻿# master.welcome ##############################################################
+ï»¿# master.welcome ##############################################################
 
-master.welcome.title = ¡Bienvenidos!
+master.welcome.title = Â¡Bienvenidos!
 master.welcome.text = \
-	Bienvenidos a Acme-Jobs! Este será en nuevo proyecto de \
-	la asignatura de Diseño y Pruebas!
+	Bienvenidos a Acme-Jobs! Este serÃ¡ en nuevo proyecto de \
+	la asignatura de DiseÃ±o y Pruebas!
 
 # master.menu #################################################################
 
@@ -29,7 +29,7 @@ master.menu.sign-out = Salir
 
 # master.menu.anonymous #######################################################
 
-master.menu.anonymous = Anónimo
+master.menu.anonymous = AnÃ³nimo
 master.menu.anonymous.favourite-link = Link favorito
 master.menu.anonymous.announcement = Lista de anuncios
 master.menu.anonymous.company-record = Lista de empresas
@@ -45,12 +45,12 @@ master.menu.administrator.user-accounts = Cuentas de usuarios
 master.menu.administrator.announcement = Lista de anuncios
 master.menu.administrator.challenge.list = Lista de retos
 master.menu.administrator.challenge.create = Crear un reto
-master.menu.administrator.customization.show = Mostrar personalización
+master.menu.administrator.customization.show = Mostrar personalizaciÃ³n
 master.menu.administrator.investor.list = Lista de inversores
 master.menu.administrator.investor.create = Crear inversor
 master.menu.administrator.shutdown = Parar el sistema
 
-master.menu.administrator.chart = Gráficas
+master.menu.administrator.chart = GrÃ¡ficas
 master.menu.administrator.dashboard = Panel
 
 
@@ -86,11 +86,14 @@ master.menu.consumer.favourite-link = Enlace favorito
 
 master.menu.employer = Empleador
 master.menu.employer.list.job = Lista de trabajos
+master.menu.employer.list.job.create = Crear trabajo
+master.menu.employer.list.application = Lista de solicitudes
 master.menu.employer.list.application.list_mine = Lista de solicitudes
 
-master.menu.employer.list.application.list_reference = Solicitudes agrupadas por N�mero de Referencia
-master.menu.employer.list.application.list_moment = Solicitudes agrupadas por Momento de Creaci�n
+master.menu.employer.list.application.list_reference = Solicitudes agrupadas por Número de Referencia
+master.menu.employer.list.application.list_moment = Solicitudes agrupadas por Momento de Creación
 master.menu.employer.list.application.list_status = Solicitudes agrupadas por Estado
+
 
 
 # master.menu.worker ##########################################################
@@ -121,7 +124,7 @@ master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
 
 
-﻿# master.footer ###############################################################
+ï»¿# master.footer ###############################################################
 
 master.footer.title.about = Nosotros
 master.footer.label.company = La empresa
@@ -130,18 +133,18 @@ master.footer.title.social = Social
 master.footer.label.linked-in = Linked-In
 master.footer.label.twitter = Twitter
 master.footer.title.languages = Lenguages
-master.footer.label.english = Inglés
-master.footer.label.spanish = Español
+master.footer.label.english = InglÃ©s
+master.footer.label.spanish = EspaÃ±ol
 
 # master.company ##############################################################
 
-master.company.title = La compañía
+master.company.title = La compaÃ±Ã­a
 master.company.text = \
-	Acme-Jobs, Inc. es una compañía fictícia que proporciona un proyecto \
-	plantilla para los estudiantes de la asignatura Diseño y Pruebas, en el Grado \
-	en Ingeniería del Software de la Universidad de Sevilla.
+	Acme-Jobs, Inc. es una compaÃ±Ã­a fictÃ­cia que proporciona un proyecto \
+	plantilla para los estudiantes de la asignatura DiseÃ±o y Pruebas, en el Grado \
+	en IngenierÃ­a del Software de la Universidad de Sevilla.
 master.company.name = Acme-Jobs, Inc.
-master.company.address = Calle, número, Ciudad, Estado, País
+master.company.address = Calle, nÃºmero, Ciudad, Estado, PaÃ­s
 master.company.phone = +000 123 456
 master.company.email = contact@acme.com
 
@@ -150,12 +153,12 @@ master.company.email = contact@acme.com
 master.license.title = Licencia
 master.license.text = \
 	Puede usar este sistema de forma completamente gratuita respetando las leyes \
-	que sean aplicables.  No compartimos ninguna información sobre Ud. con ninguna \
-	otra empresa.  Tan sólo usamos tres cookies, a saber: "JSESSIONID" para identificar \
-	su sesión de trabajo, "remember" para mantener su información de autentificación \
-	durante un máximo de 31 días y "language" para almacenar sus preferencias de \
-	lenguage.  Además, almacenamos un ítem llamado "returnStack" en el almacenamiento \
-	local de su navegador para saber dónde tienen que ir algunos botones.
+	que sean aplicables.  No compartimos ninguna informaciÃ³n sobre Ud. con ninguna \
+	otra empresa.  Tan sÃ³lo usamos tres cookies, a saber: "JSESSIONID" para identificar \
+	su sesiÃ³n de trabajo, "remember" para mantener su informaciÃ³n de autentificaciÃ³n \
+	durante un mÃ¡ximo de 31 dÃ­as y "language" para almacenar sus preferencias de \
+	lenguage.  AdemÃ¡s, almacenamos un Ã­tem llamado "returnStack" en el almacenamiento \
+	local de su navegador para saber dÃ³nde tienen que ir algunos botones.
 =======
 # i18n_es.messages
 #
@@ -171,12 +174,12 @@ master.license.text = \
 
 master.banner.background = #FFFFFF
 
-﻿# master.welcome ##############################################################
+ï»¿# master.welcome ##############################################################
 
-master.welcome.title = ¡Bienvenidos!
+master.welcome.title = Â¡Bienvenidos!
 master.welcome.text = \
-	Bienvenidos a Acme-Jobs! Este será en nuevo proyecto de \
-	la asignatura de Diseño y Pruebas!
+	Bienvenidos a Acme-Jobs! Este serÃ¡ en nuevo proyecto de \
+	la asignatura de DiseÃ±o y Pruebas!
 
 # master.menu #################################################################
 
@@ -187,7 +190,7 @@ master.menu.sign-out = Salir
 
 # master.menu.anonymous #######################################################
 
-master.menu.anonymous = Anónimo
+master.menu.anonymous = AnÃ³nimo
 master.menu.anonymous.favourite-link = Link favorito
 master.menu.anonymous.announcement = Lista de anuncios
 master.menu.anonymous.company-record = Lista de empresas
@@ -200,7 +203,7 @@ master.menu.administrator = Administrador
 master.menu.administrator.user-accounts = Cuentas de usuarios
 master.menu.administrator.announcement.list = Lista de anuncios
 master.menu.administrator.announcement.create = Crear un anuncio
-master.menu.administrator.customization = Mostrar personalización
+master.menu.administrator.customization = Mostrar personalizaciÃ³n
 master.menu.administrator.company-record.list = Lista de empresas
 master.menu.administrator.company-record.create = Crear una empresa
 master.menu.administrator.shutdown = Parar el sistema
@@ -241,7 +244,7 @@ master.menu.user-account.worker = Datos del trabajador
 master.menu.user-account.become-worker = Hazte trabajador
 
 
-﻿# master.footer ###############################################################
+ï»¿# master.footer ###############################################################
 
 master.footer.title.about = Nosotros
 master.footer.label.company = La empresa
@@ -250,18 +253,18 @@ master.footer.title.social = Social
 master.footer.label.linked-in = Linked-In
 master.footer.label.twitter = Twitter
 master.footer.title.languages = Lenguages
-master.footer.label.english = Inglés
-master.footer.label.spanish = Español
+master.footer.label.english = InglÃ©s
+master.footer.label.spanish = EspaÃ±ol
 
 # master.company ##############################################################
 
-master.company.title = La compañía
+master.company.title = La compaÃ±Ã­a
 master.company.text = \
-	Acme-Jobs, Inc. es una compañía fictícia que proporciona un proyecto \
-	plantilla para los estudiantes de la asignatura Diseño y Pruebas, en el Grado \
-	en Ingeniería del Software de la Universidad de Sevilla.
+	Acme-Jobs, Inc. es una compaÃ±Ã­a fictÃ­cia que proporciona un proyecto \
+	plantilla para los estudiantes de la asignatura DiseÃ±o y Pruebas, en el Grado \
+	en IngenierÃ­a del Software de la Universidad de Sevilla.
 master.company.name = Acme-Jobs, Inc.
-master.company.address = Calle, número, Ciudad, Estado, País
+master.company.address = Calle, nÃºmero, Ciudad, Estado, PaÃ­s
 master.company.phone = +000 123 456
 master.company.email = contact@acme.com
 
@@ -270,10 +273,10 @@ master.company.email = contact@acme.com
 master.license.title = Licencia
 master.license.text = \
 	Puede usar este sistema de forma completamente gratuita respetando las leyes \
-	que sean aplicables.  No compartimos ninguna información sobre Ud. con ninguna \
-	otra empresa.  Tan sólo usamos tres cookies, a saber: "JSESSIONID" para identificar \
-	su sesión de trabajo, "remember" para mantener su información de autentificación \
-	durante un máximo de 31 días y "language" para almacenar sus preferencias de \
-	lenguage.  Además, almacenamos un ítem llamado "returnStack" en el almacenamiento \
-	local de su navegador para saber dónde tienen que ir algunos botones.
+	que sean aplicables.  No compartimos ninguna informaciÃ³n sobre Ud. con ninguna \
+	otra empresa.  Tan sÃ³lo usamos tres cookies, a saber: "JSESSIONID" para identificar \
+	su sesiÃ³n de trabajo, "remember" para mantener su informaciÃ³n de autentificaciÃ³n \
+	durante un mÃ¡ximo de 31 dÃ­as y "language" para almacenar sus preferencias de \
+	lenguage.  AdemÃ¡s, almacenamos un Ã­tem llamado "returnStack" en el almacenamiento \
+	local de su navegador para saber dÃ³nde tienen que ir algunos botones.
 
