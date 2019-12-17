@@ -93,12 +93,7 @@
 			<acme:menu-suboption code="master.menu.employer.list.job" action="/employer/job/list_mine"/>
 			<acme:menu-suboption code="master.menu.employer.list.job.create" action="/employer/job/create"/>
 			<acme:menu-suboption code="master.menu.employer.list.application" action="/employer/application/list_mine"/>
-			<acme:menu-suboption code="master.menu.employer.list.application.list_mine" action="/employer/application/list_mine"/>
-			
-			<acme:menu-suboption code="master.menu.employer.list.application.list_reference" action="/employer/application/list_reference"/>
-			<acme:menu-suboption code="master.menu.employer.list.application.list_moment" action="/employer/application/list_moment"/>
-			<acme:menu-suboption code="master.menu.employer.list.application.list_status" action="/employer/application/list_status"/>
-
+			<acme:menu-suboption code="master.menu.employer.list.applicationOrder" action="/employer/application/list_order"/>
 		</acme:menu-option>
 		
 		
