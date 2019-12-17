@@ -212,7 +212,7 @@
 	<bean name="job1" class="acme.entities.jobs.Job">
 		<property name="reference" value="EMP1-JOB1"/>
 		<property name="title" value="Title 1"/>
-		<property name="deadline" value="2030/11/11 14:30"/>
+		<property name="deadline" value="2010/11/11 14:30"/>
 		<property name="salary" value="€ 15,000.50"/>
 		<property name="description" value="This is the first job in the system."/>
 		<property name="moreInfo" value="http://www.example1.com"/>
@@ -220,6 +220,7 @@
 		<property name="finalMode" value="true"/>
 		<property name="descriptorDescription" value="First description of descriptor"/>
 		<property name="employer" ref="employer1Employer"/>
+		<property name="worker" ref="worker1Worker"/>
 	</bean>
 	
 	<bean name="job2" class="acme.entities.jobs.Job">
@@ -233,6 +234,7 @@
 		<property name="finalMode" value="false"/>
 		<property name="descriptorDescription" value="Second description of descriptor"/>
 		<property name="employer" ref="employer1Employer"/>
+		<property name="worker" ref="worker2Worker"/>
 	</bean>
 	
 	<bean name="job3" class="acme.entities.jobs.Job">
@@ -246,6 +248,7 @@
 		<property name="finalMode" value="true"/>
 		<property name="descriptorDescription" value="Third description of descriptor"/>
 		<property name="employer" ref="employer1Employer"/>
+		<property name="worker" ref="worker2Worker"/>
 	</bean>
 	
 	<bean name="job4" class="acme.entities.jobs.Job">
@@ -259,6 +262,7 @@
 		<property name="finalMode" value="true"/>
 		<property name="descriptorDescription" value="Fourth description of descriptor"/>
 		<property name="employer" ref="employer2Employer"/>
+		<property name="worker" ref="worker2Worker"/>
 	</bean>
 	
 	<bean name="job5" class="acme.entities.jobs.Job">
@@ -272,6 +276,7 @@
 		<property name="finalMode" value="false"/>
 		<property name="descriptorDescription" value="Fifth description of descriptor"/>
 		<property name="employer" ref="employer2Employer"/>
+		<property name="worker" ref="worker1Worker"/>
 	</bean>
 	
 	<bean name="job6" class="acme.entities.jobs.Job">
@@ -285,7 +290,9 @@
 		<property name="finalMode" value="true"/>
 		<property name="descriptorDescription" value="Sixth description of descriptor"/>
 		<property name="employer" ref="employer2Employer"/>
+		<property name="worker" ref="worker1Worker"/>
 	</bean>
+	
 	
 	
 	<!-- Duties -->
