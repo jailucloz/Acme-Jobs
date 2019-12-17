@@ -135,9 +135,10 @@ $(document).ready(function() {
 $(document).ready(function() {
 	var data = {
 			labels : [
-				<jstl:forEach items="${applicationStatus}" var="section">
+				/* <jstl:forEach items="${applicationStatus}" var="section">
 					'<jstl:out value="${section.key}"/>',
-				</jstl:forEach>
+				</jstl:forEach> */
+				"PUBLISED", "DRAFT"
 			],
 			
 			datasets : [

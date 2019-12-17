@@ -29,6 +29,7 @@
         `creation_moment` datetime(6),
         `qualifications` varchar(255),
         `reference_number` varchar(255),
+        `reject_justification` varchar(255),
         `skills` varchar(255),
         `statement` varchar(255),
         `status` integer,
@@ -165,7 +166,6 @@
         `version` integer not null,
         `deadline` datetime(6),
         `description` varchar(255),
-        `descriptor_description` varchar(255),
         `final_mode` bit,
         `more_info` varchar(255),
         `reference` varchar(255),
@@ -270,7 +270,7 @@
        `id` integer not null,
         `version` integer not null,
         `user_account_id` integer,
-        `qualifications` integer,
+        `qualifications` varchar(255),
         `skills` varchar(255),
         primary key (`id`)
     ) engine=InnoDB;
@@ -280,15 +280,15 @@
     ) engine=InnoDB;
 
     insert into `hibernate_sequence` values ( 1 );
+create index IDXnlv6ege1ixororpblu3lctiev on `application` (`reference_number` desc);
+create index IDX618is0hf6jk8mhi0qeume2hqw on `application` (`creation_moment` desc);
+create index IDX2q2747fhp099wkn3j2yt05fhs on `application` (`status` desc);
 
     alter table `application` 
        add constraint UK_rf84q38qr35ymh5nn0dcxfdue unique (`reference_number`);
 
     alter table `customization` 
        add constraint `UK1i2pxu5xiyd2tkwo83784r4l0` unique (`activeid`);
-
-    alter table `job` 
-       add constraint UK_7jmfdvs0b0jx7i33qxgv22h7b unique (`reference`);
 
     alter table `offer` 
        add constraint UK_iex7e8fs0fh89yxpcnm1orjkm unique (`ticker`);

@@ -39,7 +39,6 @@ public class EmployerDutyShowService implements AbstractShowService<Employer, Du
 		job = duty.getJob();
 		employer = job.getEmployer();
 		principal = request.getPrincipal();
-		//		result = job.getStatus() == JobStatus.PUBLISHED || job.getStatus() == JobStatus.DRAFT && employer.getUserAccount().getId() == principal.getAccountId();
 
 		result = job.getFinalMode() || !job.getFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
 
