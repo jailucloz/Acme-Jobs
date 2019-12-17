@@ -15,3 +15,4 @@ employer.application.list.label.creationMoment = Momento de Creación
 employer.application.list.label.status = Estado
 
 employer.application.form.label.job.reference = Número de referencia de un trabajo
+employer.application.form-buttom.update = Modificar

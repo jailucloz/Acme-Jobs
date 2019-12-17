@@ -15,3 +15,5 @@ employer.application.list.label.creationMoment = Creation Moment
 employer.application.list.label.status = Status
 
 employer.application.form.label.job.reference = Job reference
+
+employer.application.form-buttom.update = Update
