@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.applications.Application;
+import acme.entities.applications.ApplicationStatus;
 import acme.entities.roles.Employer;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -43,8 +44,18 @@ public class EmployerApplicationShowService implements AbstractShowService<Emplo
 		assert entity != null;
 		assert model != null;
 
-		//		request.unbind(entity, model, "referenceNumber", "creationMoment", "status");
-		request.unbind(entity, model, "referenceNumber", "creationMoment", "status", "rejectJustification", "statement", "skills", "qualifications", "job.reference", "worker.userAccount.username", "employer.userAccount.username");
+		if (entity.getStatus().equals(ApplicationStatus.PENDING)) {
+			model.setAttribute("isPending", true);
+		}
+
+		model.setAttribute("worker", entity.getWorker().getIdentity().getFullName());
+		model.setAttribute("status", entity.getStatus().toString());
+		model.setAttribute("job", entity.getJob().getTitle());
+
+		//		request.unbind(entity, model, "referenceNumber", "creationMoment", "status", "rejectJustification", "statement", "skills", "qualifications", "job.reference", "worker.userAccount.username", "employer.userAccount.username");
+
+		request.unbind(entity, model, "referenceNumber", "creationMoment", "statement", "skills", "qualifications", "rejectJustification");
+
 	}
 
 	@Override

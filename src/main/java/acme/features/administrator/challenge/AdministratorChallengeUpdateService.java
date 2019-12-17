@@ -69,40 +69,63 @@ public class AdministratorChallengeUpdateService implements AbstractUpdateServic
 		Boolean isFuture, isPositiveGold, isPositiveSilver, isPositiveBronze, isEuroGold, isEuroSilver, isEuroBronze, isGold, isSilver, isBronze;
 
 		// Validación de fecha futura
-		Date fechaActual;
-		fechaActual = new Date();
-		isFuture = entity.getDeadline().after(fechaActual);
-		errors.state(request, isFuture, "deadline", "errors.challenge.deadline.future", "Deadline must be in future");
+		if (!errors.hasErrors("deadline")) {
+			Date fechaActual;
+			fechaActual = new Date();
+			isFuture = entity.getDeadline().after(fechaActual);
+			errors.state(request, isFuture, "deadline", "errors.challenge.deadline.future", "Deadline must be in future");
+
+		}
 
 		// Validación dinero positivo
-		isPositiveGold = entity.getGoldReward().getAmount() > 0;
-		errors.state(request, isPositiveGold, "goldReward", "errors.challenge.reward.money.amount-positive", "The amount must be positive");
+		if (!errors.hasErrors("goldReward")) {
+			isPositiveGold = entity.getGoldReward().getAmount() > 0;
+			errors.state(request, isPositiveGold, "goldReward", "errors.challenge.reward.money.amount-positive", "The amount must be positive");
+		}
 
-		isPositiveSilver = entity.getSilverReward().getAmount() > 0;
-		errors.state(request, isPositiveSilver, "silverReward", "errors.challenge.reward.money.amount-positive", "The amount must be positive");
+		if (!errors.hasErrors("silverReward")) {
+			isPositiveSilver = entity.getSilverReward().getAmount() > 0;
+			errors.state(request, isPositiveSilver, "silverReward", "errors.challenge.reward.money.amount-positive", "The amount must be positive");
+		}
 
-		isPositiveBronze = entity.getGoldReward().getAmount() > 0;
-		errors.state(request, isPositiveBronze, "bronzeReward", "errors.challenge.reward.money.amount-positive", "The amount must be positive");
+		if (!errors.hasErrors("bronzeReward")) {
+			isPositiveBronze = entity.getGoldReward().getAmount() > 0;
+			errors.state(request, isPositiveBronze, "bronzeReward", "errors.challenge.reward.money.amount-positive", "The amount must be positive");
+
+		}
 
 		// Validación moneda
-		isEuroGold = entity.getGoldReward().getCurrency().equals("EUR") || entity.getGoldReward().getCurrency().equals("€");
-		errors.state(request, isEuroGold, "goldReward", "errors.challenge.reward.money.euro", "The money must be in euro '€' / 'EUR'");
+		if (!errors.hasErrors("bronzeReward")) {
+			isEuroGold = entity.getGoldReward().getCurrency().equals("EUR") || entity.getGoldReward().getCurrency().equals("€");
+			errors.state(request, isEuroGold, "goldReward", "errors.challenge.reward.money.euro", "The money must be in euro '€' / 'EUR'");
+		}
 
-		isEuroSilver = entity.getSilverReward().getCurrency().equals("EUR") || entity.getSilverReward().getCurrency().equals("€");
-		errors.state(request, isEuroSilver, "silverReward", "errors.challenge.reward.money.euro", "The money must be in euro '€' / 'EUR'");
+		if (!errors.hasErrors("silverReward")) {
+			isEuroSilver = entity.getSilverReward().getCurrency().equals("EUR") || entity.getSilverReward().getCurrency().equals("€");
+			errors.state(request, isEuroSilver, "silverReward", "errors.challenge.reward.money.euro", "The money must be in euro '€' / 'EUR'");
 
-		isEuroBronze = entity.getBronzeReward().getCurrency().equals("EUR") || entity.getBronzeReward().getCurrency().equals("€");
-		errors.state(request, isEuroBronze, "bronzeReward", "errors.challenge.reward.money.euro", "The money must be in euro '€' / 'EUR'");
+		}
+		if (!errors.hasErrors("bronzeReward")) {
+			isEuroBronze = entity.getBronzeReward().getCurrency().equals("EUR") || entity.getBronzeReward().getCurrency().equals("€");
+			errors.state(request, isEuroBronze, "bronzeReward", "errors.challenge.reward.money.euro", "The money must be in euro '€' / 'EUR'");
+		}
 
 		// Validación cantidad orden
-		isGold = entity.getGoldReward().getAmount() > entity.getSilverReward().getAmount() && entity.getGoldReward().getAmount() > entity.getBronzeReward().getAmount();
-		errors.state(request, isGold, "goldReward", "errors.challenge.goldReward.amount-major", "The amount of gold must be higher than silver and bronze");
+		if (!errors.hasErrors("goldReward")) {
+			isGold = entity.getGoldReward().getAmount() > entity.getSilverReward().getAmount() && entity.getGoldReward().getAmount() > entity.getBronzeReward().getAmount();
+			errors.state(request, isGold, "goldReward", "errors.challenge.goldReward.amount-major", "The amount of gold must be higher than silver and bronze");
 
-		isSilver = entity.getSilverReward().getAmount() < entity.getGoldReward().getAmount() && entity.getSilverReward().getAmount() > entity.getBronzeReward().getAmount();
-		errors.state(request, isSilver, "silverReward", "errors.challenge.silverReward.amount-medium", "The amount of silver must be higher than bronze and lower than gold");
+		}
+		if (!errors.hasErrors("silverReward")) {
+			isSilver = entity.getSilverReward().getAmount() < entity.getGoldReward().getAmount() && entity.getSilverReward().getAmount() > entity.getBronzeReward().getAmount();
+			errors.state(request, isSilver, "silverReward", "errors.challenge.silverReward.amount-medium", "The amount of silver must be higher than bronze and lower than gold");
+		}
 
-		isBronze = entity.getBronzeReward().getAmount() < entity.getSilverReward().getAmount() && entity.getBronzeReward().getAmount() < entity.getGoldReward().getAmount();
-		errors.state(request, isBronze, "bronzeReward", "errors.challenge.bronzeReward.amount-minor", "The amount of bronze must be lower than silver and gold");
+		if (!errors.hasErrors("bronzeReward")) {
+			isBronze = entity.getBronzeReward().getAmount() < entity.getSilverReward().getAmount() && entity.getBronzeReward().getAmount() < entity.getGoldReward().getAmount();
+			errors.state(request, isBronze, "bronzeReward", "errors.challenge.bronzeReward.amount-minor", "The amount of bronze must be lower than silver and gold");
+		}
+
 	}
 
 	@Override

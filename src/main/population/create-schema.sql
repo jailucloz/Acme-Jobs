@@ -26,10 +26,10 @@
     create table `application` (
        `id` integer not null,
         `version` integer not null,
-        `reject_justification` varchar(255),
         `creation_moment` datetime(6),
         `qualifications` varchar(255),
         `reference_number` varchar(255),
+        `reject_justification` varchar(255),
         `skills` varchar(255),
         `statement` varchar(255),
         `status` integer,
