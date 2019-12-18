@@ -10,11 +10,10 @@ import acme.entities.applications.Application;
 import acme.entities.roles.Employer;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class EmployerApplicationListMineService implements AbstractListService<Employer, Application> {
+public class EmployerApplicationListOrderService implements AbstractListService<Employer, Application> {
 
 	@Autowired
 	EmployerApplicationRepository repository;
@@ -45,10 +44,9 @@ public class EmployerApplicationListMineService implements AbstractListService<E
 		assert request != null;
 
 		Collection<Application> result;
-		Principal principal;
 
-		principal = request.getPrincipal();
-		result = this.repository.findManyByEmployerId(principal.getActiveRoleId());
+		Integer employerId = request.getPrincipal().getActiveRoleId();
+		result = this.repository.findManyApplicationsByEmployerGroupingBy(employerId);
 
 		return result;
 	}

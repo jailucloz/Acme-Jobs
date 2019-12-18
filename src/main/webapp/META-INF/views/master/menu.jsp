@@ -93,11 +93,13 @@
 			<acme:menu-suboption code="master.menu.employer.list.job" action="/employer/job/list_mine"/>
 			<acme:menu-suboption code="master.menu.employer.list.job.create" action="/employer/job/create"/>
 			<acme:menu-suboption code="master.menu.employer.list.application" action="/employer/application/list_mine"/>
+			<acme:menu-suboption code="master.menu.employer.list.applicationOrder" action="/employer/application/list_order"/>
 		</acme:menu-option>
 		
 		
 		<acme:menu-option code="master.menu.worker" access="hasRole('Worker')">
 		<acme:menu-suboption code="master.menu.worker.list.application" action="/worker/application/list_mine"/>
+		<acme:menu-suboption code="master.menu.worker.list.job" action="/worker/job/list_mine"/>
 		</acme:menu-option>
 		
   
@@ -123,8 +125,15 @@
 			<acme:menu-suboption code="master.menu.user-account.provider" action="/authenticated/provider/update" access="hasRole('Provider')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-consumer" action="/authenticated/consumer/create" access="!hasRole('Consumer')"/>
 			<acme:menu-suboption code="master.menu.user-account.consumer" action="/authenticated/consumer/update" access="hasRole('Consumer')"/>
+			
+			<acme:menu-suboption code="master.menu.user-account.become-employer" action="/authenticated/employer/create" access="!hasRole('Employer')"/>
+			<acme:menu-suboption code="master.menu.user-account.employer" action="/authenticated/employer/update" access="hasRole('Employer')"/>
+			<acme:menu-suboption code="master.menu.user-account.become-worker" action="/authenticated/worker/create" access="!hasRole('Worker')"/>
+			<acme:menu-suboption code="master.menu.user-account.worker" action="/authenticated/worker/update" access="hasRole('Worker')"/>
+			
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>
 	</acme:menu-right>
 </acme:menu-bar>
+

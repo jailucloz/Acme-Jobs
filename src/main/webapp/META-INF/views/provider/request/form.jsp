@@ -24,7 +24,9 @@
 	<acme:form-moment code="provider.request.form.label.deadline" path="deadline" />
 	<acme:form-textarea code="provider.request.form.label.text" path="text" />
 	<acme:form-money code="provider.request.form.label.reward" path="reward" />
-	<acme:form-checkbox code="provider.request.form.label.accept" path="accept"/>
+    <acme:form-checkbox code="provider.request.form.label.accept" path="accept"/> 
+	
+	
 	<jstl:if test="${command=='create' }">
 		<acme:form-submit code="provider.request.form.button.create" action="/provider/request/create"/>
 	</jstl:if>

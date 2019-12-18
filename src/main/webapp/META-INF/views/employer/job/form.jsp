@@ -46,10 +46,13 @@
 		<acme:form-checkbox code="employer.job.form.label.finalMode" path="finalMode" readonly="true"/>
 	</jstl:if>
 	
+
 	<acme:form-hidden path="id"/>
+
 	<acme:form-submit test="${command != 'create' && !listDutyEmpty}" code="employer.job.form.label.duties" action="/employer/duty/list?id=${id}" method="get"/>
 	<acme:form-submit test="${command != 'create' }" code="employer.job.form.label.duties.create" action="/employer/duty/create?id=${id}" method="get"/>
 	<acme:form-submit test="${command != 'create' && !listAuditEmpty}" code="employer.job.form.label.audit" action="/authenticated/audit/list?id=${id}" method="get"/>
+
 	
 	
 	<acme:form-submit test="${command == 'show' && finalMode == false}" code="employer.job.form.button.update" action="/employer/job/update"/>
