@@ -78,6 +78,11 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 
 		Boolean isFuture, isPositive, isEuro;
 
+		// Validación del reference unique
+		Boolean unique = null;
+		unique = this.repository.findReferenceOfJob(entity.getReference()) != null;
+		errors.state(request, !unique, "reference", "errors.job.reference.unique", "The reference must be unique");
+
 		// Validación de fecha futura
 		if (!errors.hasErrors("deadline")) {
 			Date fechaActual, fecha;

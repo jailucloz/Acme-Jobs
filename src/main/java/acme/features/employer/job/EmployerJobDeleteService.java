@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.applications.Application;
+import acme.entities.audits.Audit;
 import acme.entities.duties.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
@@ -91,6 +92,8 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 
 		Collection<Duty> duties = this.repository.findDutyByJobId(entity.getId());
 		this.employerDutyRepository.deleteAll(duties);
+		Collection<Audit> audits = this.repository.findAuditByJobId(entity.getId());
+		this.repository.deleteAll(audits);
 
 		this.repository.delete(entity);
 	}

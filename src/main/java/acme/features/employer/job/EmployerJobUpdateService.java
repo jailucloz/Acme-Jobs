@@ -1,12 +1,14 @@
 
 package acme.features.employer.job;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.customizations.Customization;
 import acme.entities.duties.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
@@ -70,30 +72,26 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		Boolean isFuture, isPositive, isEuro, hasDescription, sumDutys;
+		Boolean isFuture, isPositive, isEuro, hasDescription, sumDutys, isSpam;
 
 		// Validación de cuándo puede ser finalMode
-		if (!errors.hasErrors("finalMode")) {
-			hasDescription = !entity.getDescription().isEmpty();
-			errors.state(request, hasDescription, "finalMode", "errors.job.is.finalMode.description", "Is finalMode when has a descriptor");
-		}
-
 		if (entity.getFinalMode()) {
+			if (!errors.hasErrors("finalMode")) {
+				hasDescription = !entity.getDescription().isEmpty();
+				errors.state(request, hasDescription, "finalMode", "errors.job.is.finalMode.description", "Is finalMode when has a descriptor");
+			}
+
 			if (!errors.hasErrors("finalMode")) {
 				sumDutys = this.sumDutys(entity.getId());
 				errors.state(request, sumDutys, "finalMode", "errors.job.is.finalMode.sumDuty", "Is finalMode when the duties sum up to 100% the weekly workload");
-			} else {
+			}
 
+			if (!errors.hasErrors("finalMode")) {
+				isSpam = this.esSpam(entity.getId());
+				errors.state(request, !isSpam, "finalMode", "errors.job.is.finalMode.spam", "Is finalMode when it’s not considered spam");
 			}
 
 		}
-
-		/*
-		 * if (!errors.hasErrors("finalMode")) {
-		 * isSpam = this.notSpam(entity.getId());
-		 * errors.state(request, isSpam, "finalMode", "errors.job.is.finalMode.spam", "Is finalMode when it’s not considered spam");
-		 * }
-		 */
 
 		// Validación de fecha futura
 		if (!errors.hasErrors("deadline")) {
@@ -143,13 +141,22 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		return result;
 	}
 
-	/*
-	 * private boolean notSpam(final Integer idJob) {
-	 * Boolean result;
-	 * Job job = this.repository.findOneJobById(idJob);
-	 *
-	 * return true;
-	 * }
-	 */
+	private boolean esSpam(final Integer idJob) {
+		Boolean result = false;
+		Job job = this.repository.findOneJobById(idJob);
+		Customization customization = this.repository.findCustomization();
+		String[] words = customization.getSpamWords().trim().split(",");
+		Collection<String> collectionWords = new ArrayList<String>();
+		for (String w : words) {
+			collectionWords.add(w);
+		}
+
+		for (String cw : collectionWords) {
+			if (job.getTitle().contains(cw) || job.getMoreInfo().contains(cw) || job.getDescription().contains(cw)) {
+				result = true;
+			}
+		}
+		return result;
+	}
 
 }
