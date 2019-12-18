@@ -284,6 +284,7 @@
 
     alter table `customization` 
        add constraint `UK1i2pxu5xiyd2tkwo83784r4l0` unique (`activeid`);
+create index IDX8ix743uifflnrs9bupbn6y0h4 on `job` (`reference`);
 
     alter table `offer` 
        add constraint UK_iex7e8fs0fh89yxpcnm1orjkm unique (`ticker`);
