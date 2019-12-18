@@ -16,17 +16,14 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textbox code="worker.application.form.label.referenceNumber" path="referenceNumber"/>
- 	<acme:form-moment code="worker.application.form.label.creationMoment" path="creationMoment"/> 
-
-	<acme:form-textbox  code="worker.application.form.label.status"  path="status"/> 
-	
-	<acme:form-textarea code="worker.application.form.label.statement" path="statement"/>
-	<acme:form-textarea code="worker.application.form.label.skills" path="skills"/>
+	<acme:form-textbox code="worker.application.form.label.referenceNumber" path="referenceNumber" />
+	<acme:form-textarea code="worker.application.form.label.job" path="job" />
+	<acme:form-textarea code="worker.application.form.label.worker" path="worker"/>
+	<acme:form-moment code="worker.application.form.label.creationMoment" path="creationMoment" readonly = "true"/>
+	<acme:form-textbox code="worker.application.form.label.status" path="status" readonly = "true"/>
+	<acme:form-textbox code="worker.application.form.label.statement" path="statement"/>
+	<acme:form-textarea code="worker.application.form.label.skills" path="skills" />
 	<acme:form-textarea code="worker.application.form.label.qualifications" path="qualifications"/>
-	<acme:form-textarea code="worker.application.form.label.job.reference" path="job.reference"/>
-	<acme:form-textarea code="worker.application.form.label.worker.username" path="worker.userAccount.username"/> 
-	<acme:form-textarea code="worker.application.form.label.employer.username" path="employer.userAccount.username"/>
 		
 		
 	<acme:form-return code="worker.application.form.button.return"/>

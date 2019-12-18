@@ -22,7 +22,7 @@
 	<acme:form-money code="worker.job.form.label.salary" path="salary"/>
 	<acme:form-url code="worker.job.form.label.moreInfo" path="moreInfo"/>
 	<acme:form-textarea code="worker.job.form.label.description" path="description"/>
-	<acme:form-url code="worker.job.form.label.descriptorDescription" path="descriptorDescription"/>
+
 	
 	<acme:form-hidden path="id"/>
 	<acme:form-submit code="worker.job.form.label.duties" action="/worker/duty/list?id=${id}" method="get"/>

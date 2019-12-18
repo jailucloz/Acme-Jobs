@@ -45,10 +45,6 @@ public class WorkerJobListMineService implements AbstractListService<Worker, Job
 		assert request != null;
 
 		Collection<Job> result;
-		//		Principal principal;
-		//
-		//		principal = request.getPrincipal();
-		//result = this.repository.findManyByWorkerId(principal.getActiveRoleId());
 
 		result = this.repository.findManyJob();
 
