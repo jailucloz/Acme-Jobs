@@ -21,7 +21,7 @@
 	<acme:form-integer code="employer.duty.form.label.percentage" path="percentage"/>
 	
 	
-<	<acme:form-submit test="${command == 'show' }" code="employer.duty.form.button.update" action="/employer/duty/update"/>
+	<acme:form-submit test="${command == 'show' }" code="employer.duty.form.button.update" action="/employer/duty/update"/>
 	<acme:form-submit test="${command == 'show' }" code="employer.duty.form.button.delete" action="/employer/duty/delete"/>
 	<acme:form-submit test="${command == 'create' }" code="employer.duty.form.button.create" action="/employer/duty/create"/> 
 	<acme:form-submit test="${command == 'update' }" code="employer.duty.form.button.update" action="/employer/duty/update"/>

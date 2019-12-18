@@ -8,7 +8,6 @@ import acme.entities.jobs.Job;
 import acme.entities.roles.Worker;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
@@ -26,22 +25,7 @@ public class WorkerJobShowService implements AbstractShowService<Worker, Job> {
 	public boolean authorise(final Request<Job> request) {
 		assert request != null;
 
-		boolean result;
-		int jobId;
-		Job job;
-		Worker worker;
-		Principal principal;
-
-		jobId = request.getModel().getInteger("id");
-		job = this.repository.findOneJobById(jobId);
-		worker = job.getWorker();
-		principal = request.getPrincipal();
-
-		//result = job.getStatus() == JobStatus.PUBLISHED || job.getStatus() == JobStatus.DRAFT && worker.getUserAccount().getId() == principal.getAccountId();
-
-		result = job.getFinalMode() || !job.getFinalMode() && worker.getUserAccount().getId() == principal.getAccountId();
-
-		return result;
+		return true;
 	}
 
 	@Override
@@ -50,7 +34,6 @@ public class WorkerJobShowService implements AbstractShowService<Worker, Job> {
 		assert entity != null;
 		assert model != null;
 		request.unbind(entity, model, "id", "reference", "deadline", "title", "salary", "moreInfo", "description", "finalMode");
-		//request.unbind(entity, model, "reference", "deadline", "title", "salary", "moreInfo", "description", "finalMode");
 	}
 
 	@Override

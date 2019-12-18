@@ -25,9 +25,8 @@
 
 	
 	<acme:form-hidden path="id"/>
-	<acme:form-submit code="worker.job.form.label.duties" action="/worker/duty/list?id=${id}" method="get"/>
 	<acme:form-submit code="worker.job.form.label.apply" action="/worker/application/create?id=${id}" method="get"/>
-	<%-- <acme:form-submit code="worker.job.form.label.audit" action="/authenticated/audit/list?id=${id}" method="get"/> --%>
+	<acme:form-submit code="worker.job.form.label.audit" action="/authenticated/audit/list?id=${id}" method="get"/>
 	
 	<acme:form-return code="worker.job.form.button.return"/>
 </acme:form>

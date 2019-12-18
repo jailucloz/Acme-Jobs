@@ -218,7 +218,6 @@
 		<property name="moreInfo" value="http://www.example1.com"/>
 		<property name="finalMode" value="true"/>
 		<property name="employer" ref="employer1Employer"/>
-		<property name="worker" ref="worker1Worker"/>
 	</bean>
 	
 	<bean name="job2" class="acme.entities.jobs.Job">
@@ -230,7 +229,6 @@
 		<property name="moreInfo" value="http://www.example2.com"/>
 		<property name="finalMode" value="false"/>
 		<property name="employer" ref="employer1Employer"/>
-		<property name="worker" ref="worker2Worker"/>
 	</bean>
 	
 	<bean name="job3" class="acme.entities.jobs.Job">
@@ -242,7 +240,6 @@
 		<property name="moreInfo"><null/></property>
 		<property name="finalMode" value="false"/>
 		<property name="employer" ref="employer1Employer"/>
-		<property name="worker" ref="worker2Worker"/>
 	</bean>
 	
 	<bean name="job4" class="acme.entities.jobs.Job">
@@ -254,7 +251,6 @@
 		<property name="moreInfo"><null/></property>
 		<property name="finalMode" value="true"/>
 		<property name="employer" ref="employer2Employer"/>
-		<property name="worker" ref="worker2Worker"/>
 	</bean>
 	
 	<bean name="job5" class="acme.entities.jobs.Job">
@@ -266,7 +262,6 @@
 		<property name="moreInfo" value="http://www.example5.com"/>
 		<property name="finalMode" value="false"/>
 		<property name="employer" ref="employer2Employer"/>
-		<property name="worker" ref="worker1Worker"/>
 	</bean>
 	
 	<bean name="job6" class="acme.entities.jobs.Job">
@@ -278,7 +273,6 @@
 		<property name="moreInfo" value="http://www.example6.com"/>
 		<property name="finalMode" value="false"/>
 		<property name="employer" ref="employer2Employer"/>
-		<property name="worker" ref="worker1Worker"/>
 	</bean>
 	
 	
@@ -372,6 +366,7 @@
   		<property name="statement" value="Application 1" />
   		<property name="skills" value="The ability to work under pressure and creativity." />
   		<property name="qualifications" value="Software Engineer" />
+  		<property name="rejectJustification"><null/></property>
   		<property name="worker" ref="worker1Worker" />
   		<property name="job" ref="job1" />
   	</bean>
@@ -383,6 +378,7 @@
   		<property name="statement" value="Application 2" />
   		<property name="skills" value="Commercial awareness and teamworking skills" />
   		<property name="qualifications" value="Software Engineer" />
+  		<property name="rejectJustification"><null/></property>
   		<property name="worker" ref="worker1Worker" />
   		<property name="job" ref="job2" />
   	</bean>
@@ -394,6 +390,7 @@
   		<property name="statement" value="Application 3" />
   		<property name="skills" value="Commercial awareness and teamworking skills" />
   		<property name="qualifications" value="Software Engineer" />
+  		<property name="rejectJustification"><null/></property>
   		<property name="worker" ref="worker1Worker" />
   		<property name="job" ref="job3" />
   	</bean>
@@ -405,6 +402,7 @@
   		<property name="statement" value="Application 4" />
   		<property name="skills" value="Commercial awareness and teamworking skills" />
   		<property name="qualifications" value="Software Engineer" />
+  		<property name="rejectJustification"><null/></property>
   		<property name="worker" ref="worker2Worker" />
   		<property name="job" ref="job3" />
   	</bean>
@@ -417,6 +415,7 @@
 		<property name="statement" value="statement" />
 		<property name="skills" value="application skills" />
 		<property name="qualifications" value="application5 cualifications" />
+		<property name="rejectJustification"><null/></property>
 		<property name="worker" ref="worker2Worker" />
 		<property name="job" ref="job1" />
 	</bean>
@@ -428,6 +427,7 @@
 		<property name="statement" value="statement" />
 		<property name="skills" value="application skills" />
 		<property name="qualifications" value="application6 cualifications" />
+		<property name="rejectJustification"><null/></property>
 		<property name="worker" ref="worker1Worker" />
 		<property name="job" ref="job3" />
   	</bean>
@@ -440,6 +440,7 @@
   		<property name="statement" value="Application 7" />
   		<property name="skills" value="Commercial awareness and teamworking skills" />
   		<property name="qualifications" value="Software Engineer" />
+  		<property name="rejectJustification"><null/></property>
   		<property name="worker" ref="worker2Worker" />
   		<property name="job" ref="job6" />
   	</bean>
