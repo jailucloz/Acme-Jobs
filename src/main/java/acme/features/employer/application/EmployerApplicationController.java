@@ -37,6 +37,7 @@ public class EmployerApplicationController extends AbstractController<Employer, 
 	private void initialise() {
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listMineService);
+
 		super.addCustomCommand(CustomCommand.LIST_ORDER, BasicCommand.LIST, this.listOrderService);
 		super.addCustomCommand(CustomCommand.ACCEPT, BasicCommand.UPDATE, this.acceptService);
 		super.addCustomCommand(CustomCommand.REJECT, BasicCommand.UPDATE, this.rejectService);

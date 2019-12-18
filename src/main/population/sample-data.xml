@@ -240,7 +240,7 @@
 		<property name="salary" value="€ 55,210.00"/>
 		<property name="description" value="This is the third job in the system."/>
 		<property name="moreInfo"><null/></property>
-		<property name="finalMode" value="true"/>
+		<property name="finalMode" value="false"/>
 		<property name="employer" ref="employer1Employer"/>
 		<property name="worker" ref="worker2Worker"/>
 	</bean>
@@ -276,7 +276,7 @@
 		<property name="salary" value="€ 20,000.80"/>
 		<property name="description" value="This is the sixth job in the system."/>
 		<property name="moreInfo" value="http://www.example6.com"/>
-		<property name="finalMode" value="true"/>
+		<property name="finalMode" value="false"/>
 		<property name="employer" ref="employer2Employer"/>
 		<property name="worker" ref="worker1Worker"/>
 	</bean>
@@ -288,77 +288,77 @@
 	<bean name="Duty01" class="acme.entities.duties.Duty">
 		<property name="title" value="Name of Duty 01"/>
 		<property name="dutyDescription" value="This is the description of the first Duty"/>
-		<property name="percentage" value="50.24"/>
+		<property name="percentage" value="50.00"/>
 		<property name="job" ref="job3"/>
 	</bean>
 	
 	<bean name="Duty02" class="acme.entities.duties.Duty">
 		<property name="title" value="Name of Duty 02"/>
 		<property name="dutyDescription" value="This is the description of the second Duty"/>
-		<property name="percentage" value="60.7"/>
+		<property name="percentage" value="60.00"/>
 		<property name="job" ref="job2"/>
 	</bean>
 	
 	<bean name="Duty03" class="acme.entities.duties.Duty">
 		<property name="title" value="Name of Duty 03"/>
 		<property name="dutyDescription" value="This is the description of the third Duty"/>
-		<property name="percentage" value="75"/>
+		<property name="percentage" value="75.00"/>
 		<property name="job" ref="job1"/>
 	</bean>
 	
 	<bean name="Duty04" class="acme.entities.duties.Duty">
 		<property name="title" value="Name of Duty 04"/>
 		<property name="dutyDescription" value="This is the description of the fourth Duty"/>
-		<property name="percentage" value="30.90"/>
+		<property name="percentage" value="30.00"/>
 		<property name="job" ref="job4"/>
 	</bean>
 	
 	<bean name="Duty05" class="acme.entities.duties.Duty">
 		<property name="title" value="Name of Duty 05"/>
 		<property name="dutyDescription" value="This is the description of the fifth Duty"/>
-		<property name="percentage" value="35"/>
+		<property name="percentage" value="60.00"/>
 		<property name="job" ref="job4"/>
 	</bean>
 	
 	<bean name="Duty06" class="acme.entities.duties.Duty">
 		<property name="title" value="Name of Duty 06"/>
 		<property name="dutyDescription" value="This is the description of the sixth Duty"/>
-		<property name="percentage" value="80"/>
+		<property name="percentage" value="10.00"/>
 		<property name="job" ref="job4"/>
 	</bean>
 	
 	<bean name="Duty07" class="acme.entities.duties.Duty">
 		<property name="title" value="Name of Duty 07"/>
 		<property name="dutyDescription" value="This is the description of the seventh Duty"/>
-		<property name="percentage" value="55.55"/>
+		<property name="percentage" value="25.00"/>
 		<property name="job" ref="job1"/>
 	</bean>
 	
 	<bean name="Duty08" class="acme.entities.duties.Duty">
 		<property name="title" value="Name of Duty 08"/>
 		<property name="dutyDescription" value="This is the description of the eigth Duty"/>
-		<property name="percentage" value="10.7"/>
+		<property name="percentage" value="3.00"/>
 		<property name="job" ref="job5"/>
 	</bean>
 	
 	<bean name="Duty09" class="acme.entities.duties.Duty">
 		<property name="title" value="Name of Duty 09"/>
 		<property name="dutyDescription" value="This is the description of the nineth Duty"/>
-		<property name="percentage" value="95"/>
+		<property name="percentage" value="95.00"/>
 		<property name="job" ref="job5"/>
 	</bean>
 	
 	<bean name="Duty10" class="acme.entities.duties.Duty">
 		<property name="title" value="Name of Duty 10"/>
 		<property name="dutyDescription" value="This is the description of the tenth Duty"/>	
-		<property name="percentage" value="40.8"/>
+		<property name="percentage" value="40.00"/>
 		<property name="job" ref="job6"/>
 	</bean>
 	
 	<bean name="Duty11" class="acme.entities.duties.Duty">
 		<property name="title" value="Name of Duty 11"/>
 		<property name="dutyDescription" value="This is the description of the eleventh Duty"/>
-		<property name="percentage" value="10.5"/>
+		<property name="percentage" value="10.00"/>
 		<property name="job" ref="job2"/>
 	</bean>
 	
@@ -378,7 +378,7 @@
   	
   	<bean name="application2" class="acme.entities.applications.Application">
   		<property name="referenceNumber" value="EEEI-JJJK:WWWX" />
-  		<property name="creationMoment" value="2017/12/11 23:59" />
+  		<property name="creationMoment" value="2018/12/11 23:59" />
   		<property name="status" value="PENDING" />
   		<property name="statement" value="Application 2" />
   		<property name="skills" value="Commercial awareness and teamworking skills" />
@@ -408,7 +408,7 @@
   		<property name="worker" ref="worker2Worker" />
   		<property name="job" ref="job3" />
   	</bean>
-  	
+
   	<bean name="application5" class="acme.entities.applications.Application">
 
 		<property name="referenceNumber" value="EMP1-JOB1:WOR2" />

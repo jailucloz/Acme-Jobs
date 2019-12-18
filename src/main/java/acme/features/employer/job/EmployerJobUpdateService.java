@@ -1,11 +1,15 @@
 
 package acme.features.employer.job;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.customizations.Customization;
+import acme.entities.duties.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
@@ -68,32 +72,47 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		if (!errors.hasErrors()) {
-			Boolean isFuture, isPositive, isEuro, isFinal;
+		Boolean isFuture, isPositive, isEuro, hasDescription, sumDutys, isSpam;
 
-			// Validación del modo no final
-			isFinal = entity.getFinalMode();
-			errors.state(request, !isFinal, "finalMode", "errors.job.finalMode.no", "Can't edit a job in final mode");
+		// Validación de cuándo puede ser finalMode
+		if (entity.getFinalMode()) {
+			if (!errors.hasErrors("finalMode")) {
+				hasDescription = !entity.getDescription().isEmpty();
+				errors.state(request, hasDescription, "finalMode", "errors.job.is.finalMode.description", "Is finalMode when has a descriptor");
+			}
 
-			// Validación referencia unica
-			//isDuplicated = this.repository.findOneReferenceByJobId(entity.getReference()) != null;
-			//errors.state(request, !isDuplicated, "reference", "errors.job.reference.unique", "The reference must be unique");
+			if (!errors.hasErrors("finalMode")) {
+				sumDutys = this.sumDutys(entity.getId());
+				errors.state(request, sumDutys, "finalMode", "errors.job.is.finalMode.sumDuty", "Is finalMode when the duties sum up to 100% the weekly workload");
+			}
 
-			// Validación de fecha futura
+			if (!errors.hasErrors("finalMode")) {
+				isSpam = this.esSpam(entity.getId());
+				errors.state(request, !isSpam, "finalMode", "errors.job.is.finalMode.spam", "Is finalMode when it’s not considered spam");
+			}
+
+		}
+
+		// Validación de fecha futura
+		if (!errors.hasErrors("deadline")) {
 			Date fechaActual;
 			fechaActual = new Date();
 			isFuture = entity.getDeadline().after(fechaActual);
 			errors.state(request, isFuture, "deadline", "errors.job.deadline.future", "Deadline must be in future");
+		}
 
-			// Validación dinero positivo
+		// Validación dinero positivo
+		if (!errors.hasErrors("salary")) {
 			isPositive = entity.getSalary().getAmount() > 0;
 			errors.state(request, isPositive, "salary", "errors.job.salary.money.amount-positive", "The amount must be positive");
+		}
 
-			// Validación moneda
+		// Validación moneda
+		if (!errors.hasErrors("salary")) {
 			isEuro = entity.getSalary().getCurrency().equals("EUR") || entity.getSalary().getCurrency().equals("€");
 			errors.state(request, isEuro, "salary", "errors.job.salary.money.euro", "The money must be in euro '€' / 'EUR'");
-
 		}
+
 	}
 
 	@Override
@@ -102,6 +121,42 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert entity != null;
 
 		this.repository.save(entity);
+	}
+
+	private boolean sumDutys(final Integer idJob) {
+		Boolean result;
+		Collection<Duty> duties;
+		Double sum = 0.0;
+		duties = this.repository.findDutyByJobId(idJob);
+		for (Duty d : duties) {
+			Double percentage = 0.0;
+			percentage = d.getPercentage();
+			sum = sum + percentage;
+		}
+		if (sum == 100.00) {
+			result = true;
+		} else {
+			result = false;
+		}
+		return result;
+	}
+
+	private boolean esSpam(final Integer idJob) {
+		Boolean result = false;
+		Job job = this.repository.findOneJobById(idJob);
+		Customization customization = this.repository.findCustomization();
+		String[] words = customization.getSpamWords().trim().split(",");
+		Collection<String> collectionWords = new ArrayList<String>();
+		for (String w : words) {
+			collectionWords.add(w);
+		}
+
+		for (String cw : collectionWords) {
+			if (job.getTitle().contains(cw) || job.getMoreInfo().contains(cw) || job.getDescription().contains(cw)) {
+				result = true;
+			}
+		}
+		return result;
 	}
 
 }
