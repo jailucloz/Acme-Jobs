@@ -16,3 +16,5 @@ worker.application.list.label.status = Status
 worker.application.form.label.job.reference = Job reference
 
 worker.application.form-buttom.create = Create
+
+worker.application.error.duplicatedReference = Reference number must be unique

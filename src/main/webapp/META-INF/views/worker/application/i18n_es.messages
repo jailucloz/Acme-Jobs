@@ -17,3 +17,5 @@ worker.application.form.label.job.reference = Número referencia de un trabajo
 
 
 worker.application.form-buttom.create = Crear
+
+worker.application.error.duplicatedReference = El número de referencia debe ser único

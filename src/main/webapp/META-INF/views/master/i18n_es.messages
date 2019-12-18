@@ -95,6 +95,7 @@ master.menu.employer.list.applicationOrder = Lista de solicitudes ordenadas
 
 master.menu.worker = Trabajador
 master.menu.worker.list.application= Lista de solicitudes
+master.menu.worker.list.job = Lista de trabajos
 
 # master.menu.auditor ##########################################################
 
