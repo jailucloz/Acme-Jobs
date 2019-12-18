@@ -1,17 +1,19 @@
 
 package acme.features.worker.application;
 
-import java.sql.Date;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.applications.Application;
+import acme.entities.applications.ApplicationStatus;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Worker;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractCreateService;
 
 @Service
@@ -25,7 +27,10 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 	public boolean authorise(final Request<Application> request) {
 		assert request != null;
 
-		return true;
+		Job job = this.repository.findOneJobById(request.getModel().getInteger("id"));
+		Date now = new Date();
+
+		return job.getDeadline().after(now) || job == null || job.getFinalMode() == false;
 	}
 
 	@Override
@@ -35,7 +40,6 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert errors != null;
 
 		request.bind(entity, errors);
-
 	}
 
 	@Override
@@ -43,41 +47,31 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		// job.employer
-		request.unbind(entity, model, "referenceNumber", "status", "statement", "skills", "qualifications", "job", "worker", "job.employer");
-		model.setAttribute("id", entity.getJob().getId());
+
+		request.unbind(entity, model, "referenceNumber", "statement", "skills", "qualifications");
+		model.setAttribute("id", request.getModel().getInteger("id"));
 	}
 
 	@Override
 	public Application instantiate(final Request<Application> request) {
-		assert request != null;
-		// Solicite un trabajo siempre que haya sido publicado y su fecha límite no haya
-		// transcurrido
+
 		Application result;
-		int principal, idJob;
-		Worker worker;
-		Job job;
+		Principal principal;
 
-		principal = request.getPrincipal().getAccountId();
-		worker = this.repository.findOneWorkerById(principal);
-
+		int accountId, idJob;
+		principal = request.getPrincipal();
+		accountId = principal.getActiveRoleId();
 		idJob = request.getModel().getInteger("id");
-		job = this.repository.findOneJobById(idJob);
-
 		result = new Application();
 
-		if (job != null) {
-			result.setJob(job);
-		}
+		Date moment;
+		moment = new Date(System.currentTimeMillis() - 1);
+		result.setCreationMoment(moment);
+		result.setStatus(ApplicationStatus.PENDING);
+		result.setWorker(this.repository.findOneWorkerById(accountId));
+		result.setJob(this.repository.findOneJobById(idJob));
 
-		result.setWorker(worker);
-
-		result.getJob().getFinalMode().equals(true);
-
-		//		Application result;
-		//		result = new Application();
 		return result;
-
 	}
 
 	@Override
@@ -86,22 +80,15 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert errors != null;
 
-		if (!errors.hasErrors()) {
-			Boolean unique;
-			unique = this.repository.findOneApplicationById(entity.getId()) != null;
+		Boolean unique = null;
+		unique = this.repository.findApplicationByReferenceNumber(entity.getReferenceNumber()) != null;
 
-			errors.state(request, !unique, "reference", "worker.application.error.reference");
-		}
+		errors.state(request, !unique, "referenceNumber", "worker.application.error.duplicatedReference");
 
 	}
 
 	@Override
 	public void create(final Request<Application> request, final Application entity) {
-		assert request != null;
-		assert entity != null;
-
-		Date date = new Date(System.currentTimeMillis() - 1);
-		entity.setCreationMoment(date);
 
 		this.repository.save(entity);
 	}

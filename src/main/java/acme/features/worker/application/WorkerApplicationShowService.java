@@ -8,7 +8,6 @@ import acme.entities.applications.Application;
 import acme.entities.roles.Worker;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
@@ -22,20 +21,21 @@ public class WorkerApplicationShowService implements AbstractShowService<Worker,
 	public boolean authorise(final Request<Application> request) {
 		assert request != null;
 
-		boolean result;
-		int applicationId;
-		Application application;
-		Worker worker;
-		Principal principal;
+		//		boolean result;
+		//		int applicationId;
+		//		Application application;
+		//		Worker worker;
+		//		Principal principal;
+		//
+		//		applicationId = request.getModel().getInteger("id");
+		//		application = this.repository.findOneApplicationById(applicationId);
+		//		worker = application.getWorker();
+		//		principal = request.getPrincipal();
+		//		result = worker.getUserAccount().getId() == principal.getAccountId();
 
-		applicationId = request.getModel().getInteger("id");
-		application = this.repository.findOneApplicationById(applicationId);
-		worker = application.getWorker();
-		principal = request.getPrincipal();
-		result = worker.getUserAccount().getId() == principal.getAccountId();
+		//	return result;
 
-		return result;
-
+		return true;
 	}
 
 	@Override
@@ -44,11 +44,8 @@ public class WorkerApplicationShowService implements AbstractShowService<Worker,
 		assert entity != null;
 		assert model != null;
 
-		model.setAttribute("worker", entity.getWorker().getIdentity().getFullName());
-		model.setAttribute("status", entity.getStatus().toString());
-		model.setAttribute("job", entity.getJob().getTitle());
-
-		request.unbind(entity, model, "referenceNumber", "creationMoment", "statement", "skills", "qualifications");
+		request.unbind(entity, model, "referenceNumber", "creationMoment", "status");
+		request.unbind(entity, model, "statement", "skills", "qualifications", "job.reference", "worker.userAccount.username", "employer.userAccount.username");
 	}
 
 	@Override

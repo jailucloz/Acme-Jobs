@@ -33,10 +33,7 @@ public class WorkerApplicationListMineService implements AbstractListService<Wor
 		assert entity != null;
 		assert model != null;
 
-		model.setAttribute("status", entity.getStatus().toString());
-		model.setAttribute("job", entity.getJob().getTitle());
-
-		request.unbind(entity, model, "creationMoment", "referenceNumber", "statement");
+		request.unbind(entity, model, "referenceNumber", "creationMoment", "status");
 	}
 
 	@Override

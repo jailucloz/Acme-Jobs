@@ -95,6 +95,7 @@ master.menu.employer.list.applicationOrder = Application order list
 
 master.menu.worker = Worker
 master.menu.worker.list.application = Application list
+master.menu.worker.list.job = Jobs list
 
 # master.menu.auditor ##########################################################
 
