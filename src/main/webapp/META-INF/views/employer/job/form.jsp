@@ -24,9 +24,10 @@
 	<acme:form-textarea code="employer.job.form.label.description" path="description"/>
 	<acme:form-checkbox code="employer.job.form.label.finalMode" path="finalMode"/>
 	
+
 	<acme:form-hidden path="id"/>
 	<acme:form-submit test="${command != 'create' }" code="employer.job.form.label.duties" action="/employer/duty/list?id=${id}" method="get"/>
-	<acme:form-submit test="${command != 'create' }" code="employer.job.form.label.duties.create" action="/employer/duty/create?id=${id}" method="get"/>
+	<acme:form-submit test="${command != 'create' }" code="employer.job.form.label.duties.create" action="/employer/duty/create?id=${id}" method="get"/> 
 	
 	<acme:form-submit test="${command != 'create' }" code="employer.job.form.label.audit" action="/authenticated/audit/list?id=${id}" method="get"/>
 	
