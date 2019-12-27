@@ -52,6 +52,10 @@ master.menu.administrator.shutdown = Shut down
 
 master.menu.administrator.chart = Charts
 master.menu.administrator.dashboard = Dashboard
+master.menu.administrator.announcement.list = Announcement list
+master.menu.administrator.announcement.create = Create announcement
+master.menu.administrator.company-record.list = Company record list
+master.menu.administrator.company-record.create = Create company record
 
 master.menu.administrator.commercial-banner.list = Commercial Banner List
 master.menu.administrator.commercial-banner.create = Commercial Banner Create

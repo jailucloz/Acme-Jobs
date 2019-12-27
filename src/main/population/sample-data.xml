@@ -102,7 +102,7 @@
 	</bean>
 	
 	<bean name="worker1Worker" class="acme.entities.roles.Worker">
-		<property name="qualifications" value="5"/>
+		<property name="qualifications" value="Estudios medios"/>
 		<property name="skills" value="Amable y respetuoso"/>
 		<property name="userAccount" ref="worker1UserAccount"/>
 	</bean>
@@ -133,7 +133,7 @@
 	</bean>
 	
 	<bean name="worker2Worker" class="acme.entities.roles.Worker">
-		<property name="qualifications" value="7"/>
+		<property name="qualifications" value="Estudios grandes"/>
 		<property name="skills" value="Rápido y eficaz"/>
 		<property name="userAccount" ref="worker2UserAccount"/>
 	</bean>
