@@ -13,6 +13,9 @@ auditor.audit.form.label.status = Estado
 auditor.audit.form.label.creationMoment = Momento de creación
 auditor.audit.form.label.body = Cuerpo
 
+auditor.audit.list.label.title = Título
+auditor.audit.list.label.body = Cuerpo
+
 auditor.audit.form.button.create = Crear
 auditor.audit.form.button.update = Actualizar
 auditor.audit.form.button.delete = Eliminar

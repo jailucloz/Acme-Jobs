@@ -1,11 +1,14 @@
 
 package acme.features.authenticated.job;
 
+import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.audits.Audit;
+import acme.entities.duties.Duty;
 import acme.entities.jobs.Job;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -49,7 +52,12 @@ public class AuthenticatedJobShowService implements AbstractShowService<Authenti
 		assert entity != null;
 		assert model != null;
 
+		Collection<Duty> duties = this.repository.findDutyByJobId(entity.getId());
+		Collection<Audit> audits = this.repository.findAuditByJobId(entity.getId());
+
 		request.unbind(entity, model, "reference", "deadline", "title", "salary", "moreInfo", "description", "finalMode");
+		model.setAttribute("listDutyEmpty", duties.isEmpty());
+		model.setAttribute("listAuditEmpty", audits.isEmpty());
 	}
 
 	@Override

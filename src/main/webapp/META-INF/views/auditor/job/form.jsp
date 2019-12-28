@@ -25,10 +25,10 @@
 	<acme:form-checkbox code="employer.job.form.label.finalMode" path="finalMode"/>
 	
 	<acme:form-hidden path="id"/>
-	<acme:form-submit code="auditor.job.form.label.duties" action="/authenticated/duty/list?id=${id}" method="get"/>
 	
-	<acme:form-submit code="auditor.job.form.label.audit" action="/authenticated/audit/list?id=${id}" method="get"/>
-	<acme:form-submit code="auditor.audit.form.label.audits.create" action="/auditor/audit/create?id=${id}" method="get"/>	
+	<acme:form-submit test="${command != 'create' && !listDutyEmpty}" code="auditor.job.form.label.duties" action="/authenticated/duty/list?id=${id}" method="get"/>
+	<acme:form-submit test="${command != 'create' && !listAuditEmpty}" code="auditor.job.form.label.audit" action="/auditor/audit/list?id=${id}" method="get"/>
+	<acme:form-submit test="${command != 'create' }" code="auditor.audit.form.label.audits.create" action="/auditor/audit/create?id=${id}" method="get"/>	
 	
 	<acme:form-return code="auditor.job.form.button.return"/>
 </acme:form>

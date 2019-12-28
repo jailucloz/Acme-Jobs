@@ -22,6 +22,7 @@ worker.job.form.label.description = Descripción
 
 
 worker.job.form.label.duty = Lista de obligaciones
+worker.job.form.label.audit = Lista de auditorías
 
 worker.job.form.button.return = Volver
 

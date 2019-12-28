@@ -212,7 +212,7 @@
 	<bean name="job1" class="acme.entities.jobs.Job">
 		<property name="reference" value="EMP1-JOB1"/>
 		<property name="title" value="Title 1"/>
-		<property name="deadline" value="2010/11/11 14:30"/>
+		<property name="deadline" value="2020/11/11 14:30"/>
 		<property name="salary" value="€ 15,000.50"/>
 		<property name="description" value="This is the first job in the system."/>
 		<property name="moreInfo" value="http://www.example1.com"/>
@@ -271,7 +271,7 @@
 		<property name="salary" value="€ 20,000.80"/>
 		<property name="description" value="This is the sixth job in the system."/>
 		<property name="moreInfo" value="http://www.example6.com"/>
-		<property name="finalMode" value="false"/>
+		<property name="finalMode" value="true"/>
 		<property name="employer" ref="employer2Employer"/>
 	</bean>
 	
