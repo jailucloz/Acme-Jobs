@@ -22,6 +22,7 @@ worker.job.form.label.description = Description
 
 
 worker.job.form.label.duty = Duties list
+worker.job.form.label.audit = Audits list
 
 worker.job.form.button.return = Return
 
