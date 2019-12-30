@@ -42,7 +42,10 @@ master.menu.anonymous.investor.top = Principales inversores
 
 master.menu.administrator = Administrador
 master.menu.administrator.user-accounts = Cuentas de usuarios
-master.menu.administrator.announcement = Lista de anuncios
+master.menu.administrator.announcement.list = Lista de anuncios
+master.menu.administrator.announcement.create = Crear un anuncio
+master.menu.administrator.company-record.list= Lista de empresas
+master.menu.administrator.company-record.create = Crear un registro de empresa
 master.menu.administrator.challenge.list = Lista de retos
 master.menu.administrator.challenge.create = Crear un reto
 master.menu.administrator.customization.show = Mostrar personalización
@@ -59,6 +62,7 @@ master.menu.administrator.commercial-banner.create = Crear Banner Comercial
 master.menu.administrator.non-commercial-banner.list = Lista de Banners No Comerciales
 master.menu.administrator.non-commercial-banner.create = Crear Banner No Comercial
 
+master.menu.user-account.auditor-requests = Peticiones de auditor
 
 # master.menu.authenticated ###################################################
 
@@ -119,6 +123,9 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+
+
+
 
 
 ﻿# master.footer ###############################################################

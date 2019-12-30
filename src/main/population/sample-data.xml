@@ -17,6 +17,23 @@
 
 	<import resource="conversion-service.xml" />
 	
+	<!-- Request to become an auditor -->
+    
+	<bean name="auditorRequest1" class="acme.entities.auditorRequests.AuditorRequest">
+		<property name="firm" value="Firm 01"/>
+		<property name="statement" value="A good statement"/>
+		<property name="status" value="Pending"/>
+		<property name="userAccount" ref="employer2UserAccount"/>
+	</bean>
+	
+	<bean name="auditorRequest2" class="acme.entities.auditorRequests.AuditorRequest">
+		<property name="firm" value="Firm 02"/>
+		<property name="statement" value="Statement two"/>
+		<property name="status" value="Pending"/>
+		<property name="userAccount" ref="employer2UserAccount"/>
+	</bean>
+	
+	
 	<!-- Employers -->
 	
 	<bean name="employer1UserAccount" class="acme.framework.entities.UserAccount">
