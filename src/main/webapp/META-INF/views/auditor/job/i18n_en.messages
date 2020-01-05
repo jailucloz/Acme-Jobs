@@ -22,5 +22,6 @@ auditor.job.form.label.description = Description
 
 auditor.job.form.label.duties = Duties list
 auditor.job.form.label.audit = Audits list
+auditor.audit.form.label.audits.create = Create audit
 
 auditor.job.form.button.return = Return

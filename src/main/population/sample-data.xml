@@ -119,7 +119,7 @@
 	</bean>
 	
 	<bean name="worker1Worker" class="acme.entities.roles.Worker">
-		<property name="qualifications" value="5"/>
+		<property name="qualifications" value="Estudios medios"/>
 		<property name="skills" value="Amable y respetuoso"/>
 		<property name="userAccount" ref="worker1UserAccount"/>
 	</bean>
@@ -150,7 +150,7 @@
 	</bean>
 	
 	<bean name="worker2Worker" class="acme.entities.roles.Worker">
-		<property name="qualifications" value="7"/>
+		<property name="qualifications" value="Estudios grandes"/>
 		<property name="skills" value="Rápido y eficaz"/>
 		<property name="userAccount" ref="worker2UserAccount"/>
 	</bean>
@@ -229,7 +229,7 @@
 	<bean name="job1" class="acme.entities.jobs.Job">
 		<property name="reference" value="EMP1-JOB1"/>
 		<property name="title" value="Title 1"/>
-		<property name="deadline" value="2010/11/11 14:30"/>
+		<property name="deadline" value="2020/11/11 14:30"/>
 		<property name="salary" value="€ 15,000.50"/>
 		<property name="description" value="This is the first job in the system."/>
 		<property name="moreInfo" value="http://www.example1.com"/>
@@ -288,7 +288,7 @@
 		<property name="salary" value="€ 20,000.80"/>
 		<property name="description" value="This is the sixth job in the system."/>
 		<property name="moreInfo" value="http://www.example6.com"/>
-		<property name="finalMode" value="false"/>
+		<property name="finalMode" value="true"/>
 		<property name="employer" ref="employer2Employer"/>
 	</bean>
 	

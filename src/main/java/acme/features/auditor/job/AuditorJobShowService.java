@@ -1,9 +1,13 @@
 
 package acme.features.auditor.job;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.audits.Audit;
+import acme.entities.duties.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Auditor;
 import acme.framework.components.Model;
@@ -32,7 +36,13 @@ public class AuditorJobShowService implements AbstractShowService<Auditor, Job> 
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model, "reference", "deadline", "title", "salary", "moreInfo", "description", "finalMode");
+
+		Collection<Duty> duties = this.repository.findDutyByJobId(entity.getId());
+		Collection<Audit> audits = this.repository.findAuditByJobId(entity.getId());
+
+		request.unbind(entity, model, "id", "reference", "deadline", "title", "salary", "moreInfo", "description", "finalMode");
+		model.setAttribute("listDutyEmpty", duties.isEmpty());
+		model.setAttribute("listAuditEmpty", audits.isEmpty());
 
 	}
 

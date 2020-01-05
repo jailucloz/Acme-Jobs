@@ -52,11 +52,10 @@
 	<acme:form-submit test="${command != 'create' && !listDutyEmpty}" code="employer.job.form.label.duties" action="/employer/duty/list?id=${id}" method="get"/>
 	<acme:form-submit test="${command != 'create' }" code="employer.job.form.label.duties.create" action="/employer/duty/create?id=${id}" method="get"/>
 	<acme:form-submit test="${command != 'create' && !listAuditEmpty}" code="employer.job.form.label.audit" action="/authenticated/audit/list?id=${id}" method="get"/>
-
-	
 	
 	<acme:form-submit test="${command == 'show' && finalMode == false}" code="employer.job.form.button.update" action="/employer/job/update"/>
-	<acme:form-submit test="${command == 'show' }" code="employer.job.form.button.delete" action="/employer/job/delete"/>
+	<acme:form-submit test="${command == 'show' && listAppEmpty}" code="employer.job.form.button.delete" action="/employer/job/delete"/>
+	
 	<acme:form-submit test="${command == 'create' }" code="employer.job.form.button.create" action="/employer/job/create"/>
 	<acme:form-submit test="${command == 'update' }" code="employer.job.form.button.update" action="/employer/job/update"/>
 	<acme:form-submit test="${command == 'delete' }" code="employer.job.form.button.delete" action="/employer/job/delete"/>

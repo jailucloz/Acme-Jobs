@@ -55,7 +55,10 @@ master.menu.administrator.shutdown = Parar el sistema
 
 master.menu.administrator.chart = Gráficas
 master.menu.administrator.dashboard = Panel
-
+master.menu.administrator.announcement.list = Lista de anuncios
+master.menu.administrator.announcement.create = Crear anuncio
+master.menu.administrator.company-record.list = Lista de empresas
+master.menu.administrator.company-record.create = Crear empresa
 
 master.menu.administrator.commercial-banner.list = Lista de Banners Comerciales
 master.menu.administrator.commercial-banner.create = Crear Banner Comercial
